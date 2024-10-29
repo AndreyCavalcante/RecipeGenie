@@ -62,6 +62,16 @@
                                 <input type="button" value="Fitness" class="collapse_button">
                             </div>
                         </div>
+                        <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                            Tempo de preparo ᐯ
+                        </button>
+                        <div class="collapse collapse-edit" id="collapseExample1">
+                            <div class="card card-body filtro-card">
+                                <input type="button" value="Salgados" class="collapse_button">
+                                <input type="button" value="Doces" class="collapse_button">
+                                <input type="button" value="Fitness" class="collapse_button">
+                            </div>
+                        </div>
                         <hr>
                         <a class="nav-btn">
                             <input type="button" value="Gerar Receita ⬈">
@@ -92,9 +102,19 @@
                     <div class="sidebar">
                         <ul class="side-list">
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Categorias ᐯ
+                                <span>Categorias</span> <span>ᐯ</span>
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample">
+                                <div class="card card-body filtro-card">
+                                    <input type="button" value="Salgados" class="collapse_button">
+                                    <input type="button" value="Doces" class="collapse_button">
+                                    <input type="button" value="Fitness" class="collapse_button">
+                                </div>
+                            </div>
+                            <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                                <span>Tempo de preparo</span> <span>ᐯ</span>
+                            </button>
+                            <div class="collapse collapse-edit" id="collapseExample1">
                                 <div class="card card-body filtro-card">
                                     <input type="button" value="Salgados" class="collapse_button">
                                     <input type="button" value="Doces" class="collapse_button">
