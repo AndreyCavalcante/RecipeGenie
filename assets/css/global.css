@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+    background-color: #FCF9EF;
+    color: #0c0628;
+    scroll-behavior: smooth;
+    font-family: 'Lilita One', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.nav-edit{
+    background-color: #e6e5e3;
+    color: #0c0628;
+    font-family:'Lilita One', sans-serif;
+    font-weight: 400;
+}
+
+.nav-container{
+    background-color: #e6e5e3;
+}
+
+.nav-edit a{
+    font-size: 20px;
+}
+
+.nav-edit .font-edit{
+    font-size: 30px;
+}
+
+.nav-btn {
+    margin-right: 5px;
+}
+
+.nav-btn input{
+    border: none;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #f8c131;
+    color: #0c0628;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.row-space{
+    height: 50px;
+}
+
+.botao{
+    border: none;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #f8c131;
+    color: #0c0628;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.botao:hover, .nav-btn input:hover{
+    border-radius: 10px;
+    background-color: #f8c131;
+    color: #0c0628;
+}
+
+.botao:active{
+    background-color: #f8c131;
+    color: #0c0628;
+}
+
+
+.loading {
+    border: 4px solid transparent;
+    border-top: 4px solid #0c0628;
+    border-bottom: 4px solid currentColor;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 5px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.small_validation{
+    font-size: 10px;
+}

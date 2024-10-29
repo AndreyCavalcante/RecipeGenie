@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/* Cores Principais
+#0c0628 Azul-Petróleo-Escuro
+#f8c131 Amarelo-Dourado-Vibrante
+#fbf9ed Off-White
+*/
+
+body{
+    background-color: #FCF9EF;
+    color: #0c0628;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.nav-edit{
+    background-color: #e6e5e3;
+    color: #0c0628;
+    font-family:'Lilita One', sans-serif;
+    font-weight: 400;
+}
+
+.nav-container{
+    background-color: #e6e5e3;
+}
+
+.nav-edit a{
+    font-size: 20px;
+}
+
+.nav-edit .font-edit{
+    font-size: 30px;
+}
+
+.nav-btn {
+    margin-right: 5px;
+}
+
+.nav-btn input{
+    border: none;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #f8c131;
+    color: #0c0628;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.botao{
+    border: none;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #f8c131;
+    color: #0c0628;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.botao:hover, .nav-btn input:hover{
+    border-radius: 10px;
+}
+
+
+.centro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #0c0628;
+}
+
+.centro p{
+    font-family: 'Lilita One', sans-serif;
+    font-size: 20px;
+}
+
+.texto{
+    color: #0c0628;
+    font-family: 'Lilita One', sans-serif;
+    font-size: 50px;
+}
+
+.logo_index{
+    margin-left: 30px;
+}
+
+.row-space{
+    height: 55px;
+}
+
+.row-space-B{
+    height: 80px;
+}
+
+.ia-title{
+    font-weight: bold;
+    color: #0c0628;
+    font-family: 'Lilita One', sans-serif;
+    font-size: 50px;
+}
+
+.functions-list{
+    font-family: 'Lilita One', sans-serif;
+    color: #0c0628;
+    display: flex;
+    flex-direction: column;
+}
+
+.functions-list p{
+    justify-content: start;
+    margin: 3px;
+}
+
+@media (max-width: 600px){
+    .logo_index{
+        margin-left: 0px;
+        width: 350px;
+    }
+
+    .texto{
+        font-size: 40px;
+        padding: 20px;
+    }
+
+    .centro p{
+        font-size: 15px;
+        padding: 20px;
+    }
+
+    .ia-title{
+        font-size: 40px;
+        padding: 20px;
+    }
+
+    .functions-list{
+        font-size: 15px;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,150 @@
+body {
+    background-color: #FCF9EF;
+    height: 100%;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 300px;
+    background-color: #e6e5e3;
+    padding-top: 20px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+}
+
+.sidebar a, .sidebar button{
+    color: #0c0628;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 5px 20px;
+}
+
+.nav-edit {
+    padding: 5px;
+}
+
+.main-container {
+    margin-left: 300px;
+    padding: 30px;
+}
+
+.section-container {
+    position: relative;
+    border: #cdcdcd solid 3px;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.side-list hr{
+    width: 280px;
+    margin-left: -20px;
+}
+
+.horizontal_edit{
+    margin-right: 10px;
+}
+
+.custom_table{
+    width: 350px;
+    border: 3px solid #DEE2E6;
+}
+
+.sidebar-button{
+    width: 200px;
+}
+
+.collapse-edit{
+    width: 200px;
+    margin-left: 20px;
+    font-size: 20px;
+    background: none;
+}
+
+.collapse_button{
+    border: none;
+    background-color: #e6e5e3;
+}
+
+.collapse_button:hover{
+    background-color: #d8d7d6;
+    transform: scale(1.1);
+}
+
+.filtro-card{
+    background-color: #e6e5e3;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-container {
+        margin-left: 0;
+    }
+
+    .custom_table{
+        width: 300px;
+    }
+
+    .card_recipes{
+        width: 310px;
+    }
+
+    .collapse-edit{
+        margin-left: 89px;
+    }
+}
+
+@media (max-height: 900px) {
+    .sidebar {
+        height: 100vh;
+    }
+}
+
+.stars_container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.star {
+    font-size: 24px;
+    color: lightgray;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star.active {
+    color: gold;
+}
+
+.image_button{
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.image_button:hover{
+    box-shadow: rgba(248, 192, 49, 0.300) 0px 4px 6px, rgba(248, 192, 49, 0.300) 0px -4px 6px, rgba(248, 193, 49, 0.300) 0px 4px 6px, rgba(248, 193, 49, 0.300) 0px 4px 6px, rgba(248, 193, 49, 0.300) 0px -4px 6px;
+}
+
+.image_seta{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.container_title{
+    margin-top: 50px;
+    text-align: center;
+}
