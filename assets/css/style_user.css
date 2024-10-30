@@ -56,11 +56,25 @@ body {
     border: 3px solid #DEE2E6;
 }
 
-.sidebar-button{
+.sidebar-button {
     width: 200px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+.btn-text {
+    flex: 1;
+    text-align: left;
+}
+
+.btn-icon {
+    width: 20px;
+    margin-left: auto;
+}
+
+.sidebar-nav-btn input{
+    width: 200px;
 }
 
 .collapse-edit{
@@ -84,6 +98,34 @@ body {
     background-color: #e6e5e3;
 }
 
+.side-bar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-bar-pesq{
+    position: relative;
+    margin-right: 10px;
+}
+
+.side-bar-pesq input{
+    height: 33px;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+}
+
+.side-bar-pesq button{
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    padding: 0px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+}
+
 @media (max-width: 991px) {
     .sidebar {
         display: none;
@@ -102,7 +144,17 @@ body {
     }
 
     .collapse-edit{
-        margin-left: 89px;
+        margin-left: 0px;
+        margin-bottom: 3px;
+    }
+
+    .sidebar-button{
+        margin-bottom: 3px;
+        width: 200px;
+    }
+
+    .side-bar-container{
+        margin-bottom: 20px;
     }
 }
 

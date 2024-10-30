@@ -139,9 +139,9 @@
             <div class="left-section">
                 <a href="#">Sobre Nós</a>
                 <a href="#">Feedback</a>
-                <span class="copyright">© 2024 RecipeGanie</span>
+                <span class="copyright">© 2024 RecipeGenie</span>
             </div>
-            <h1 class="h1">RecipeGanie</h1>
+            <h1 class="h1">RecipeGenie</h1>
         </footer>
 
         <script src="assets/js/jquery-3.7.1.min.js"></script>

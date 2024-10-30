@@ -98,3 +98,12 @@ html, body {
 .small_validation{
     font-size: 10px;
 }
+
+.input_container input{
+    width: 300px;
+    font-weight: normal;
+    border: 2px solid #eee;
+    background-color: #eee;
+    height: 30px;
+    border-radius: 5px;
+}
