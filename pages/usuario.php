@@ -60,6 +60,7 @@
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample">
                                 <div class="card card-body filtro-card">
+                                    <input type="button" value="Todas" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'todas')">
                                     <input type="button" value="Salgados" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'salgado')">
                                     <input type="button" value="Doces" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'doce')">
                                     <input type="button" value="Fitness" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'fitness')">
@@ -71,9 +72,9 @@
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample1">
                                 <div class="card card-body filtro-card">
-                                    <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 15)">
-                                    <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 30)">
-                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 31)">
+                                    <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 1)">
+                                    <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 2)">
+                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3)">
                                 </div>
                             </div>
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
@@ -121,15 +122,16 @@
                 <div class="col-lg-3">
                     <div class="sidebar">
                         <ul class="side-list">
-                            <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 <span class="btn-text">Categorias</span>
                                 <img class="btn-icon" src="../assets/images/seta_baixo.png" width="20px" alt="">
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample">
                                 <div class="card card-body filtro-card">
-                                    <input type="button" value="Salgados" class="collapse_button">
-                                    <input type="button" value="Doces" class="collapse_button">
-                                    <input type="button" value="Fitness" class="collapse_button">
+                                    <input type="button" value="Todas" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'todas')">
+                                    <input type="button" value="Salgados" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'salgado')">
+                                    <input type="button" value="Doces" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'doce')">
+                                    <input type="button" value="Fitness" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'fitness')">
                                 </div>
                             </div>
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
@@ -138,9 +140,9 @@
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample1">
                                 <div class="card card-body filtro-card">
-                                    <input type="button" value="-15 minutos" class="collapse_button">
-                                    <input type="button" value="15 - 30 minutos" class="collapse_button">
-                                    <input type="button" value="+30m minutos" class="collapse_button">
+                                    <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 1)">
+                                    <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 2)">
+                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3)">
                                 </div>
                             </div>
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
@@ -149,8 +151,8 @@
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample2">
                                 <div class="card card-body filtro-card">
-                                    <input type="button" value="Maior" class="collapse_button">
-                                    <input type="button" value="Menor" class="collapse_button">
+                                    <input type="button" value="Maior" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'maior')">
+                                    <input type="button" value="Menor" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'menor')">
                                 </div>
                             </div>
                             <hr>

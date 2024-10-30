@@ -222,6 +222,8 @@ function buscar_receitas(id){
 
             let section = document.getElementById('receitas')
 
+            section.innerHTML = "";
+
             let texto = ``;
 
             if('error' in result){
@@ -233,7 +235,7 @@ function buscar_receitas(id){
 
                     let receitaDetalhes = JSON.parse(receitaObj.receita)
 
-                    texto = `
+                    texto += `
                         <div class="col-sm-6">
                             <div class="card card_recipes">
                                 <div class="card-body">
@@ -247,9 +249,9 @@ function buscar_receitas(id){
                             </div>
                         </div>
                     `;
-
-                    section.innerHTML += texto;
                 })
+
+                section.innerHTML = texto;
             }
 
         },
@@ -265,12 +267,14 @@ function buscar_filtro(id, filtro, valor){
     $.ajax({
         url: '../config/manter_receitas.php',
         method: 'POST',
-        data: {'form': 'buscar_receitas', 'id': id, 'filtro': filtro, 'pesq': valor},
+        data: {'form': 'buscar_por_filtro', 'id': id, 'filtro': filtro, 'pesq': valor},
         dataType: 'json',
         success: function(result){
             console.log(result)
 
             let section = document.getElementById('receitas')
+
+            section.innerHTML = "";
 
             let texto = ``;
 
@@ -283,7 +287,7 @@ function buscar_filtro(id, filtro, valor){
 
                     let receitaDetalhes = JSON.parse(receitaObj.receita)
 
-                    texto = `
+                    texto += `
                         <div class="col-sm-6">
                             <div class="card card_recipes">
                                 <div class="card-body">
@@ -297,9 +301,9 @@ function buscar_filtro(id, filtro, valor){
                             </div>
                         </div>
                     `;
-
-                    section.innerHTML += texto;
                 })
+
+                section.innerHTML = texto;
             }
 
         },
