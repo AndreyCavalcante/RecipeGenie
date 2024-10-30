@@ -97,6 +97,8 @@
             }else if($valor == 3){
                 $sql .= "AND JSON_UNQUOTE(JSON_EXTRACT(receita, '$.tempo_de_preparo')) >= 30";
             }
+        }else if($filtro == "pesquisa"){
+            $sql .= "AND JSON_UNQUOTE(JSON_EXTRACT(receita, '$.nome')) LIKE '%$valor%'"; 
         }
 
         $result = $connect->query($sql);

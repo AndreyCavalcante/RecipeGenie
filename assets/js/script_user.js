@@ -263,7 +263,16 @@ function buscar_receitas(id){
     });
 }
 
-function buscar_filtro(id, filtro, valor){
+function buscar_filtro(id, filtro, valor, pesq_value){
+
+    if(valor === null || valor === ""){
+        if (pesq_value === 1){
+            valor = $("#pesquisa_value1").val()
+        }else{
+            valor = $("#pesquisa_value").val()
+        }
+    }
+
     $.ajax({
         url: '../config/manter_receitas.php',
         method: 'POST',
@@ -304,59 +313,6 @@ function buscar_filtro(id, filtro, valor){
                 })
 
                 section.innerHTML = texto;
-            }
-
-        },
-        error: function(xhr, status, error){
-            console.log(xhr.responseText)
-            console.log(status)
-            console.log(error)
-        }
-    });
-}
-
-function pesq_receita(id){
-
-    valor = $('pesquisar').val();
-
-    $.ajax({
-        url: '../config/manter_receitas.php',
-        method: 'POST',
-        data: {'form': 'buscar_receitas', 'id': id, 'pesq': valor},
-        dataType: 'json',
-        success: function(result){
-            console.log(result)
-
-            let section = document.getElementById('receitas')
-
-            let texto = ``;
-
-            if('error' in result){
-                texto = `<h1>Nenhuma Receita encontrada</h1>`
-
-                section.innerHTML = texto;
-            }else{
-                result.forEach(function(receitaObj){
-
-                    let receitaDetalhes = JSON.parse(receitaObj.receita)
-
-                    texto = `
-                        <div class="col-sm-6">
-                            <div class="card card_recipes">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        ${receitaDetalhes.nome}
-                                        ${stars(receitaObj.avaliacao)}
-                                    </h5>
-                                    <p class="card-text">Serve: ${receitaDetalhes.porcoes}<br> Tempo de preparo: ${receitaDetalhes.tempo_de_preparo}</p>
-                                    <button class="botao" type="button" onclick="visualizar_receita(${receitaObj.id_receita})">Visualizar receita</button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-
-                    section.innerHTML += texto;
-                })
             }
 
         },
