@@ -23,13 +23,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ReciopeGenie - Receitas</title>
+        <title>RecipeGenie - Receitas</title>
 
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/global.css">
         <link rel="stylesheet" href="../assets/css/style_user.css">
 
-        <link rel="stylesheet" href="../assets/images/favicon.png">
+        <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     </head>
     <body class="container-fluid" onload="buscar_receitas(<?php echo $id_user?>)">
         <nav class="navbar navbar-expand-lg nav-edit fixed-top">
