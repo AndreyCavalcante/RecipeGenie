@@ -102,6 +102,14 @@
                                     <button type="submit"><img src="../assets/images/pesq.png" width="25px" alt=""></button>
                                 </div>
                             </form>
+                            <div class="footer-nav-expand">
+                                <div class="left-section">
+                                    <a href="#">Sobre Nós</a>
+                                    <a href="#">Feedback</a>
+                                    <span class="copyright">© 2024 RecipeGenie</span>
+                                </div>
+                                <h1 class="h1">RecipeGenie</h1>
+                            </div>
                         </div>
                     </ul>
                 </div>
@@ -175,15 +183,6 @@
                 </div>
             </div>
         </div>
-
-        <footer class="footer_usuarios">
-            <div class="left-section">
-                <a href="#">Sobre Nós</a>
-                <a href="#">Feedback</a>
-                <span class="copyright">© 2024 RecipeGenie</span>
-            </div>
-            <h1 class="h1">RecipeGenie</h1>
-        </footer>
 
         <script src="../assets/js/jquery-3.7.1.min.js"></script>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>

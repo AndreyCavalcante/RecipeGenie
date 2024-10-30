@@ -55,6 +55,10 @@ body {
     border-top: 3px solid #ccc;
 }
 
+.footer-nav-expand{
+    margin-top: 20px;
+}
+
 .left-section {
     display: flex;
     gap: 3px;
