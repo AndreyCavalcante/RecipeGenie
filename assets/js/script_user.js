@@ -162,7 +162,7 @@ function visualizar_receita(id){
                     <div class="receita">
                         <div class="title_recipe">
                             <div style="display: flex; align-items: center;">
-                                <h2>${receita.nome} </h2>
+                                <h3>${receita.nome} </h3>
                                 ${stars(result[0].avaliacao)}
                             </div>
                             <img class="image_button image_seta" src="../assets/images/seta.png" width="40px" onclick="reload_page()">
@@ -179,17 +179,17 @@ function visualizar_receita(id){
                             </ul>
                         </div>
                         <div class="ingredientes">
-                            <h3>Ingredientes:</h3>
+                            <h4>Ingredientes:</h4>
                             <div class="ingre_list">
 
                             </div>
                         </div>
                         <div class="modo_de_preparo">
-                            <h3>Modo de preparo:</h3>
+                            <h4>Modo de preparo:</h4>
                             ${modo_de_preparo(receita.modo_preparo)}
                         </div>
                         <div class="tabela_nutricional">
-                            <h3>Tabela nutricional</h3>
+                            <h4>Tabela nutricional</h4>
                             <div>
                                 <p>Informação Nutricional (Porção: ${tabela.porcao})</p>
                                 ${tabela_nutri(tabela.informacoes)}
@@ -216,6 +216,109 @@ function buscar_receitas(id){
         url: '../config/manter_receitas.php',
         method: 'POST',
         data: {'form': 'buscar_receitas', 'id': id},
+        dataType: 'json',
+        success: function(result){
+            console.log(result)
+
+            let section = document.getElementById('receitas')
+
+            let texto = ``;
+
+            if('error' in result){
+                texto = `<h1>Nenhuma Receita encontrada</h1>`
+
+                section.innerHTML = texto;
+            }else{
+                result.forEach(function(receitaObj){
+
+                    let receitaDetalhes = JSON.parse(receitaObj.receita)
+
+                    texto = `
+                        <div class="col-sm-6">
+                            <div class="card card_recipes">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        ${receitaDetalhes.nome}
+                                        ${stars(receitaObj.avaliacao)}
+                                    </h5>
+                                    <p class="card-text">Serve: ${receitaDetalhes.porcoes}<br> Tempo de preparo: ${receitaDetalhes.tempo_de_preparo}</p>
+                                    <button class="botao" type="button" onclick="visualizar_receita(${receitaObj.id_receita})">Visualizar receita</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    section.innerHTML += texto;
+                })
+            }
+
+        },
+        error: function(xhr, status, error){
+            console.log(xhr.responseText)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
+function buscar_filtro(id, filtro, valor){
+    $.ajax({
+        url: '../config/manter_receitas.php',
+        method: 'POST',
+        data: {'form': 'buscar_receitas', 'id': id, 'filtro': filtro, 'pesq': valor},
+        dataType: 'json',
+        success: function(result){
+            console.log(result)
+
+            let section = document.getElementById('receitas')
+
+            let texto = ``;
+
+            if('error' in result){
+                texto = `<h1>Nenhuma Receita encontrada</h1>`
+
+                section.innerHTML = texto;
+            }else{
+                result.forEach(function(receitaObj){
+
+                    let receitaDetalhes = JSON.parse(receitaObj.receita)
+
+                    texto = `
+                        <div class="col-sm-6">
+                            <div class="card card_recipes">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        ${receitaDetalhes.nome}
+                                        ${stars(receitaObj.avaliacao)}
+                                    </h5>
+                                    <p class="card-text">Serve: ${receitaDetalhes.porcoes}<br> Tempo de preparo: ${receitaDetalhes.tempo_de_preparo}</p>
+                                    <button class="botao" type="button" onclick="visualizar_receita(${receitaObj.id_receita})">Visualizar receita</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    section.innerHTML += texto;
+                })
+            }
+
+        },
+        error: function(xhr, status, error){
+            console.log(xhr.responseText)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
+function pesq_receita(id){
+
+    valor = $('pesquisar').val();
+
+    $.ajax({
+        url: '../config/manter_receitas.php',
+        method: 'POST',
+        data: {'form': 'buscar_receitas', 'id': id, 'pesq': valor},
         dataType: 'json',
         success: function(result){
             console.log(result)

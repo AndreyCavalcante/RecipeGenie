@@ -42,6 +42,24 @@ body {
     flex-wrap: wrap;
 }
 
+.side-list{
+    position: relative;
+}
+
+.footer-nav{
+    position: absolute;
+    left: 40px;
+    top: 180%;
+    width: 285px;
+    margin-left: -30px;
+    border-top: 3px solid #ccc;
+}
+
+.left-section {
+    display: flex;
+    gap: 3px;
+}
+
 .side-list hr{
     width: 280px;
     margin-left: -20px;
@@ -126,6 +144,10 @@ body {
     cursor: pointer;
 }
 
+.footer_usuarios{
+    display: none;
+}
+
 @media (max-width: 991px) {
     .sidebar {
         display: none;
@@ -155,6 +177,10 @@ body {
 
     .side-bar-container{
         margin-bottom: 20px;
+    }
+
+    .footer_usuarios{
+        display: flex;
     }
 }
 
@@ -194,8 +220,8 @@ body {
 
 .image_seta{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     z-index: 10;
 }
 

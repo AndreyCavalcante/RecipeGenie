@@ -11,41 +11,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-        <style>
-            footer {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px;
-                background-color: #f4f4f4;
-                border-top: 1px solid #ccc;
-                }
-
-                .left-section {
-                display: flex;
-                gap: 20px;
-                }
-
-                .left-section a {
-                text-decoration: none;
-                color: #000;
-                font-size: 14px;
-                }
-
-                .left-section a:hover {
-                text-decoration: underline;
-                }
-
-                .copyright {
-                font-size: 14px;
-                color: #666;
-                }
-
-                .h1 {
-                font-size: 24px;
-                color: #333;
-                }
-        </style>
     </head>
     <body>
         <header class="container-fluid nav-container">

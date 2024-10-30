@@ -46,7 +46,7 @@
                     <ul class="navbar-nav ms-auto d-none d-lg-flex">
                         <form>
                             <div class="input_container side-bar-pesq">
-                                <input type="text" name="" id="" placeholder="Pesquisar">
+                                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
                                 <button type="submit"><img src="../assets/images/pesq.png" width="25px" alt=""></button>
                             </div>
                         </form>
@@ -60,9 +60,9 @@
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample">
                                 <div class="card card-body filtro-card">
-                                    <input type="button" value="Salgados" class="collapse_button">
-                                    <input type="button" value="Doces" class="collapse_button">
-                                    <input type="button" value="Fitness" class="collapse_button">
+                                    <input type="button" value="Salgados" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'salgado')">
+                                    <input type="button" value="Doces" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'doce')">
+                                    <input type="button" value="Fitness" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'fitness')">
                                 </div>
                             </div>
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
@@ -71,9 +71,9 @@
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample1">
                                 <div class="card card-body filtro-card">
-                                    <input type="button" value="-15 minutos" class="collapse_button">
-                                    <input type="button" value="15 - 30 minutos" class="collapse_button">
-                                    <input type="button" value="+30m minutos" class="collapse_button">
+                                    <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 15)">
+                                    <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 30)">
+                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 31)">
                                 </div>
                             </div>
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
@@ -82,8 +82,8 @@
                             </button>
                             <div class="collapse collapse-edit" id="collapseExample2">
                                 <div class="card card-body filtro-card">
-                                    <input type="button" value="Maior" class="collapse_button">
-                                    <input type="button" value="Menor" class="collapse_button">
+                                    <input type="button" value="Maior" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'maior')">
+                                    <input type="button" value="Menor" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'menor')">
                                 </div>
                             </div>
                             <hr>
@@ -154,6 +154,14 @@
                                     <input type="submit" value="Sair" style="margin-top: 3px;">
                                 </a>
                             </form>
+                            <div class="footer-nav">
+                                <div class="left-section">
+                                    <a href="#">Sobre Nós</a>
+                                    <a href="#">Feedback</a>
+                                    <span class="copyright">© 2024 RecipeGenie</span>
+                                </div>
+                                <h1 class="h1">RecipeGenie</h1>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -169,7 +177,12 @@
         </div>
 
         <footer class="footer_usuarios">
-            
+            <div class="left-section">
+                <a href="#">Sobre Nós</a>
+                <a href="#">Feedback</a>
+                <span class="copyright">© 2024 RecipeGenie</span>
+            </div>
+            <h1 class="h1">RecipeGenie</h1>
         </footer>
 
         <script src="../assets/js/jquery-3.7.1.min.js"></script>
