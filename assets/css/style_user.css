@@ -182,6 +182,10 @@ body {
     .footer_usuarios{
         display: flex;
     }
+    
+    .main-container{
+        min-height: 500px;
+    }
 }
 
 @media (max-height: 900px) {
