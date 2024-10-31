@@ -195,9 +195,7 @@ function visualizar_receita(id){
                                 ${tabela_nutri(tabela.informacoes)}
                             </div>
                         </div>
-                        <div class="delete">
-                            <button class="button_delete" onclick="delete_receita(${id}, '${receita.nome}')"><img src="../assets/images/lixeira.png"></button>
-                        </div>
+                        <button class="button_delete" onclick="delete_receita(${id}, '${receita.nome}')"><img src="../assets/images/lixeira.png"></button>
                     </div>
                 `;
 

@@ -122,7 +122,9 @@
                                     <a href="#">Feedback</a>
                                     <span class="copyright">© 2024 RecipeGenie</span>
                                 </div>
-                                <h1 class="h1">RecipeGenie</h1>
+                                <div class="nome_footer">
+                                    <h1 class="h1">RecipeGenie</h1>
+                                </div>
                             </div>
                         </div>
                     </ul>

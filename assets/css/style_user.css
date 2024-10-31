@@ -160,8 +160,11 @@ body {
 }
 
 .button_delete{
+    position: absolute;
     border: none;
     background-color: transparent;
+    bottom: 5px;
+    right: 5px;
 }
 
 .button_delete img{
@@ -184,6 +187,7 @@ body {
 
     .custom_table{
         width: 300px;
+        margin-bottom: 30px;
     }
 
     .card_recipes{
