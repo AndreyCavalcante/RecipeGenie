@@ -17,6 +17,9 @@
         case 'buscar_por_filtro':
             buscar_por_filtro($connect);
             break;
+        case "delete_receita":
+            delete_receita($connect);
+            break;
         default:
             break;
     }
@@ -117,4 +120,17 @@
         }
 
         $connect->close();
+    }
+
+    function delete_receita($connect){
+        $id = $connect->real_escape_string($_POST['id']);
+
+        $sql = "DELETE FROM receita WHERE id_receita = $id";
+
+        if($connect->query($sql) === true){
+            echo json_encode(true);
+        }else{
+            echo json_encode(false);
+        }
+        
     }

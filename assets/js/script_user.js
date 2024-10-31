@@ -195,6 +195,9 @@ function visualizar_receita(id){
                                 ${tabela_nutri(tabela.informacoes)}
                             </div>
                         </div>
+                        <div class="delete">
+                            <button class="button_delete" onclick="delete_receita(${id}, '${receita.nome}')">Deletar</button>
+                        </div>
                     </div>
                 `;
 
@@ -322,4 +325,34 @@ function buscar_filtro(id, filtro, valor, pesq_value){
             console.log(error)
         }
     });
+}
+
+function delete_receita(id, nome){
+
+    let confirm_delete = confirm("Deseja excluir a recita: "+nome)
+
+    if(confirm_delete){
+        $.ajax({
+            url: "../config/manter_receitas.php",
+            method: 'POST',
+            data: {'form': 'delete_receita', 'id': id},
+            dataType: 'json',
+            success: function(result){
+    
+                if(result){
+                    alerta_temporario("Sucesso!", "Receita deletada com sucesso!", 3000)
+                    window.reload()
+                }else{
+                    alerta_temporario('Erro', "Erro ao tentar excluir a receita", 3000)
+                }
+            },
+            error: function(xhr,status,error){
+                console.log(xhr.responseText)
+                console.log(status)
+                console.log(error)
+            }
+        });
+    }else{
+        return
+    }
 }

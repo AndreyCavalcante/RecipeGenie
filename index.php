@@ -106,7 +106,7 @@
                 <a href="#">Feedback</a>
                 <span class="copyright">© 2024 RecipeGenie</span>
             </div>
-            <h1 class="h1">RecipeGenie</h1>
+            <h1 class="h1 h1_footer">RecipeGenie</h1>
         </footer>
 
         <script src="assets/js/jquery-3.7.1.min.js"></script>
