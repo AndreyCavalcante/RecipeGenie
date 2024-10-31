@@ -162,7 +162,15 @@ body {
 .button_delete{
     border: none;
     background-color: transparent;
+}
+
+.button_delete img{
     border-radius: 3px;
+    width: 40px;
+}
+
+.button_delete img:hover{
+    box-shadow: rgba(255, 0, 0, 0.3) 0px 4px 6px, rgba(255, 0, 0, 0.3) 0px -4px 6px, rgba(255, 0, 0, 0.3) 0px 4px 6px, rgba(255, 0, 0, 0.3) 0px 4px 6px, rgba(255, 0, 0, 0.3) 0px -4px 6px;
 }
 
 @media (max-width: 991px) {
