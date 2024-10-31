@@ -152,6 +152,19 @@ body {
     display: none;
 }
 
+.delete{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+}
+
+.button_delete{
+    border: none;
+    background-color: transparent;
+    border-radius: 3px;
+}
+
 @media (max-width: 991px) {
     .sidebar {
         display: none;

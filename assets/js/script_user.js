@@ -196,7 +196,7 @@ function visualizar_receita(id){
                             </div>
                         </div>
                         <div class="delete">
-                            <button class="button_delete" onclick="delete_receita(${id}, '${receita.nome}')">Deletar</button>
+                            <button class="button_delete" onclick="delete_receita(${id}, '${receita.nome}')"><img src="../assets/images/lixeira.png"></button>
                         </div>
                     </div>
                 `;
