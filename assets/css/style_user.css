@@ -165,12 +165,12 @@ body {
     background-color: transparent;
     bottom: 5px;
     right: 5px;
-    transition: all 0.5s ease;
 }
 
 .button_delete img{
     border-radius: 3px;
     width: 40px;
+    transition: all 0.5s ease;
 }
 
 .button_delete img:hover{

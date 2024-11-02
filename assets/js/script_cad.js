@@ -103,7 +103,7 @@ function verificar_forca(){
 }
 
 function verificar_email(email){
-    const regex = /^[^\s@]{8,}@[^\s@]+\.[^\s@]+$/;
+    const regex = /^[^\s@]{5,}@[^\s@]+\.[^\s@]+$/;
 
     if(email === ''){
         return false;
