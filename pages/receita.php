@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/global.css">
         <link rel="stylesheet" href="../assets/css/style_user.css">
+        <link rel="stylesheet" href="../assets/css/style_receita.css">
 
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     </head>
@@ -192,8 +193,29 @@
                     <div class="container_title">
                         
                     </div>
-                    <section>
-                        
+                    <section class="section_gerar_receita" id="receitas">
+                        <div class="container_input">
+                            <div class="container_inpur_rec">
+                                <h2>Gerar receitas</h2>
+                                <p>Crie uma receita com os ingredientes disponíveis em casa</p>
+                            </div>
+                            <div class="container_input_rec input_rec">
+                                <input 
+                                    type="text" name="ingredientes_values" 
+                                    id="ingredientes_value" 
+                                    placeholder=" " 
+                                    required 
+                                    data-bs-container="body" 
+                                    data-bs-toggle="popover" 
+                                    data-bs-placement="bottom"
+                                    data-bs-trigger="focus" 
+                                    data-bs-content='Separe seus ingredientes com ","'
+                                >
+                                <label for="ingredientes_value">Ingredientes</label>
+                            </div>
+                            <div class="container_input_rec"></div>
+                            <div class="container_input_rec"></div>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -202,6 +224,9 @@
 
         <script src="../assets/js/jquery-3.7.1.min.js"></script>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/js/script_user.js"></script>
+        <script>
+            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+            const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        </script>
     </body>
 </html>
