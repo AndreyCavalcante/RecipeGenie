@@ -61,6 +61,10 @@
     margin: 3px;
 }
 
+.loading_recipes{
+    font-size: 22px;
+}
+
 @media (max-width: 600px){
     .input_rec input{
         width: 300px;

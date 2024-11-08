@@ -1,6 +1,6 @@
 <?php
 
-    require __DIR__ . '/../vendor/autoload.php';
+    require(__DIR__ . '/../vendor/autoload.php');
 
     use Dotenv\Dotenv;
     use GuzzleHttp\Client;
@@ -85,11 +85,11 @@
                 }
 
             } else {
-                echo json_encode(array('error'=>'Erro ao gerar receita'));
+                echo json_encode(array('error'=>'Erro ao gerar'));
             }
 
         }catch (RequestException $e){
-            echo json_encode(array('error'=>'Erro ao tentar gerar receita'));
+            echo json_encode(array('error'=>'Erro ao tentar gerar receita'.$e));
         }
     }
 

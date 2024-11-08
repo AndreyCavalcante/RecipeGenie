@@ -33,7 +33,7 @@ function changeEmoji() {
 
 function loader(value, title = ''){
     document.getElementById('modalMessage').innerHTML = `   
-        <div class="d-flex">
+        <div class="d-flex loading_recipes">
             <p>Carregando... </p><div id="loader_modal_rec"></div>
         </div>
     `;
@@ -194,8 +194,8 @@ $(document).on('submit', '#form_gerar_receitas', function(e){
                 alerta_temporario('Erro', "Erro ao gerar a receita", 3000);
             }else{
                 exibir_receitas(result);
-                receitas_global = result.receita;
-                console.log(receitas_global);
+                receita_global = result.receita;
+                console.log(receita_global);
             }
         },
         error: function(xhr, status, error){
@@ -207,8 +207,28 @@ $(document).on('submit', '#form_gerar_receitas', function(e){
     
 });
 
-function salvar_receitas(){
+function salvar_receita(){
     let id = $('#id_user').val();
-    let receita_json = receita[0];
 
+    $.ajax({
+        url: "../config/manter_receitas.php",
+        method: 'POST',
+        data: {'form': 'salvar_receita', "id": id, "receita":receita_global[0]},
+        dataType: 'json',
+        success: function(result){
+            if(result){
+                alerta_temporario('Sucesso!', "A receita foi salva com sucesso!", 3000);
+                setTimeout(function(){
+                    window.location.href = '../pages/minhas_receitas.php';
+                },3000);
+            }else{
+                alerta_temporario('Erro!', 'Ocorreu um erro inesperado ao tentar salvar receitas');
+            }
+        },
+        error: function(xhr, status, error){
+            console.log(xhr.responseText)
+            console.log(status)
+            console.log(error)
+        }
+    });
 }

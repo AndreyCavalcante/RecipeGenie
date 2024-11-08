@@ -67,7 +67,7 @@ function ingredientes(lista, multi) {
     let texto = `<ul>`;
 
     lista.forEach(function(ingrediente) {
-        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial);
+        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial) / 10;
         let li = `<li>${ingrediente.nome}: ${nova_quantidade.toFixed(1)} ${ingrediente.uni_medida}</li>`;
         texto += li;
     });
@@ -151,8 +151,8 @@ function visualizar_receita(id){
 
                 let tabela = receita.tab_nutri
 
-                porcoes = receita.porcoes
-                porcao_inicial = receita.porcoes
+                porcoes = receita.porcoes / 10
+                porcao_inicial = receita.porcoes / 10
 
                 let receita_view = `
                     <div class="receita">
@@ -228,10 +228,9 @@ function buscar_receitas(id){
 
                 section.innerHTML = texto;
             }else{
-                result.forEach(function(receitaObj){
-
-                    let receitaDetalhes = JSON.parse(receitaObj.receita)
-
+                result.forEach(function(receitaObj) {
+                    let receitaDetalhes = JSON.parse(receitaObj.receita); 
+                
                     texto += `
                         <div class="col-sm-6">
                             <div class="card card_recipes">
@@ -246,7 +245,7 @@ function buscar_receitas(id){
                             </div>
                         </div>
                     `;
-                })
+                });
 
                 section.innerHTML = texto;
             }
@@ -289,10 +288,9 @@ function buscar_filtro(id, filtro, valor, pesq_value){
 
                 section.innerHTML = texto;
             }else{
-                result.forEach(function(receitaObj){
-
-                    let receitaDetalhes = JSON.parse(receitaObj.receita)
-
+                result.forEach(function(receitaObj) {
+                    let receitaDetalhes = JSON.parse(receitaObj.receita); 
+                
                     texto += `
                         <div class="col-sm-6">
                             <div class="card card_recipes">
@@ -307,7 +305,7 @@ function buscar_filtro(id, filtro, valor, pesq_value){
                             </div>
                         </div>
                     `;
-                })
+                });
 
                 section.innerHTML = texto;
             }
@@ -335,7 +333,7 @@ function delete_receita(id, nome){
     
                 if(result){
                     alerta_temporario("Sucesso!", "Receita deletada com sucesso!", 3000)
-                    window.reload()
+                    window.location.reload()
                 }else{
                     alerta_temporario('Erro', "Erro ao tentar excluir a receita", 3000)
                 }

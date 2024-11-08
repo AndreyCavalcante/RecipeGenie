@@ -33,7 +33,7 @@
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     </head>
     <body class="container-fluid">
-        <input type="hidden" name="id_user" id="id_user">
+        <input type="hidden" name="id_user" id="id_user" value="<?php echo $id_user?>">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
