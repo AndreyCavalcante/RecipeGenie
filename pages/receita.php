@@ -119,7 +119,7 @@
                     <div class="container_title">
                         
                     </div>
-                    <section class="section_gerar_receita" id="receitas">
+                    <section class="section_gerar_receita section-container" id="receitas">
                         <div class="container_input">
                             <div class="container_inpur_rec">
                                 <h2>Gerar receitas</h2>

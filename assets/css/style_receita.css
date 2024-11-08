@@ -1,5 +1,5 @@
 .section_gerar_receita{
-    height: calc(100vh - 16vh);
+    min-height: calc(100vh - 16vh);
     padding: 30px;
     display: flex;
     justify-content: center;
