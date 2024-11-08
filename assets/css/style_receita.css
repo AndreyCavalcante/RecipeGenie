@@ -57,6 +57,10 @@
     margin: 10px;
 }
 
+.receitas_page a{
+    margin: 3px;
+}
+
 @media (max-width: 600px){
     .input_rec input{
         width: 300px;
