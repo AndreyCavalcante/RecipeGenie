@@ -1,3 +1,5 @@
+let receita_global = "";
+
 function alerta_temporario(titulo, mensagem, tempo) {
 
     document.getElementById('modalMessage').innerText = mensagem;
@@ -155,6 +157,9 @@ function exibir_receitas(result) {
                     ${tabela_nutri(tabela.informacoes)}
                 </div>
             </div>
+            <div class="botao_salvar_receita">
+                <button class="botao submit_button" onclick="salvar_receita()">Salvar Receitas</button>
+            </div>
         </div>
     `;
 
@@ -189,6 +194,8 @@ $(document).on('submit', '#form_gerar_receitas', function(e){
                 alerta_temporario('Erro', "Erro ao gerar a receita", 3000);
             }else{
                 exibir_receitas(result);
+                receitas_global = result.receita;
+                console.log(receitas_global);
             }
         },
         error: function(xhr, status, error){
@@ -199,3 +206,9 @@ $(document).on('submit', '#form_gerar_receitas', function(e){
 
     
 });
+
+function salvar_receitas(){
+    let id = $('#id_user').val();
+    let receita_json = receita[0];
+
+}
