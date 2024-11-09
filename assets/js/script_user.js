@@ -70,7 +70,7 @@ function ingredientes(lista, multi) {
 
     lista.forEach(function(ingrediente) {
         // Calcular a nova quantidade com base nas porções
-        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial); // Suponho que 2 seja a porção original no banco
+        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial) / 10; // Suponho que 2 seja a porção original no banco
         let li = `<li>${ingrediente.nome}: ${nova_quantidade.toFixed(1)} ${ingrediente.uni_medida}</li>`;
         texto += li;
     });
@@ -155,8 +155,8 @@ function visualizar_receita(id){
 
                 let tabela = receita.tab_nutri
 
-                porcoes = receita.porcoes
-                porcao_inicial = receita.porcoes
+                porcoes = receita.porcoes / 10
+                porcao_inicial = receita.porcoes / 10
 
                 let receita_view = `
                     <div class="receita">

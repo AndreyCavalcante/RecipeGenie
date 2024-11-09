@@ -81,7 +81,7 @@ $(document).on('submit', '#form_login', function(e){
             loader(false)
 
             if(result === true){
-                window.location.href = '../pages/usuario.php';
+                window.location.href = '../pages/minhas_receitas.php';
             }else{
                 alerta_temporario('Erro', 'Não foi possível realizar o loguin, tente novamente!', 3000)
             }

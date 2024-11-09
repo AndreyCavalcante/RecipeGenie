@@ -28,11 +28,12 @@
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/global.css">
         <link rel="stylesheet" href="../assets/css/style_user.css">
+        <link rel="stylesheet" href="../assets/css/style_receita.css">
 
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     </head>
-    <body class="container-fluid" onload="buscar_receitas(<?php echo $id_user?>)">
-
+    <body class="container-fluid">
+        <input type="hidden" name="id_user" id="id_user" value="<?php echo $id_user?>">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -57,50 +58,18 @@
                 <div class="collapse navbar-collapse  horizontal-edit" id="navbarNav">
                     <!-- NavBar horizontal -->
                     <ul class="navbar-nav ms-auto d-none d-lg-flex">
-                        <form>
-                            <div class="input_container side-bar-pesq">
-                                <input type="text" name="pesquisa_value" id="pesquisa_value" placeholder="Pesquisar por nome">
-                                <button type="button" onclick="buscar_filtro(<?php echo $id_user?>, 'pesquisa', '', 0)"><img src="../assets/images/pesq.png" width="25px" alt=""></button>
-                            </div>
+                        <form action="../config/logout.php">
+                            <a class="nav-btn sidebar-nav-btn">
+                                <input type="submit" value="Sair" style="margin-top: 3px; margin-right: 10px; width: 100px;">
+                            </a>
                         </form>
                     </ul>
                     <!-- NavBar Vertical expandida-->
                     <ul class="navbar-nav d-lg-none nav-vertical-edit">
-                        <div class="side-bar-container">
-                            <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="btn-text">Categorias</span>
-                                <img class="btn-icon" src="../assets/images/seta_baixo.png" width="20px" alt="">
-                            </button>
-                            <div class="collapse collapse-edit" id="collapseExample">
-                                <div class="card card-body filtro-card">
-                                    <input type="button" value="Todas" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'todas', 0)">
-                                    <input type="button" value="Salgados" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'salgado', 0)">
-                                    <input type="button" value="Doces" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'doce', 0)">
-                                    <input type="button" value="Fitness" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'fitness', 0)">
-                                </div>
-                            </div>
-                            <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="btn-text">Tempo de preparo</span>
-                                <img class="btn-icon" src="../assets/images/seta_baixo.png" width="20px" alt="">
-                            </button>
-                            <div class="collapse collapse-edit" id="collapseExample1">
-                                <div class="card card-body filtro-card">
-                                    <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 1, 0)">
-                                    <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 2, 0)">
-                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3, 0)">
-                                </div>
-                            </div>
-                            <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="btn-text">Avaliação</span>
-                                <img class="btn-icon" src="../assets/images/seta_baixo.png" alt="">
-                            </button>
-                            <div class="collapse collapse-edit" id="collapseExample2">
-                                <div class="card card-body filtro-card">
-                                    <input type="button" value="Maior" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'maior', 0)">
-                                    <input type="button" value="Menor" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'menor', 0)">
-                                </div>
-                            </div>
-                            <hr>
+                        <div class="side-bar-container receitas_page">
+                            <a href="../pages/usuario.php" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Meu perfil ⬈">
+                            </a>
                             <a class="nav-btn sidebar-nav-btn">
                                 <input type="button" value="Gerar Receita ⬈">
                             </a>
@@ -109,13 +78,7 @@
                                     <input type="submit" value="Sair" style="margin-top: 3px;">
                                 </a>
                             </form>
-                            <hr>
-                            <form>
-                                <div class="input_container side-bar-pesq">
-                                    <input type="text" name="pesquisa_value1" id="pesquisa_value1" placeholder="Pesquisar por nome">
-                                    <button type="button" onclick="buscar_filtro(<?php echo $id_user?>, 'pesquisa', '', 1)"><img src="../assets/images/pesq.png" width="25px" alt=""></button>
-                                </div>
-                            </form>
+
                             <div class="footer-nav-expand">
                                 <div class="left-section">
                                     <a href="#">Sobre Nós</a>
@@ -135,48 +98,12 @@
                 <div class="col-lg-3">
                     <div class="sidebar">
                         <ul class="side-list">
-                        <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="btn-text">Categorias</span>
-                                <img class="btn-icon" src="../assets/images/seta_baixo.png" width="20px" alt="">
-                            </button>
-                            <div class="collapse collapse-edit" id="collapseExample">
-                                <div class="card card-body filtro-card">
-                                    <input type="button" value="Todas" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'todas', 0)">
-                                    <input type="button" value="Salgados" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'salgado', 0)">
-                                    <input type="button" value="Doces" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'doce', 0)">
-                                    <input type="button" value="Fitness" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'categoria', 'fitness', 0)">
-                                </div>
-                            </div>
-                            <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="btn-text">Tempo de preparo</span>
-                                <img class="btn-icon" src="../assets/images/seta_baixo.png" width="20px" alt="">
-                            </button>
-                            <div class="collapse collapse-edit" id="collapseExample1">
-                                <div class="card card-body filtro-card">
-                                    <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 1, 0)">
-                                    <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 2, 0)">
-                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3, 0)">
-                                </div>
-                            </div>
-                            <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="btn-text">Avaliação</span>
-                                <img class="btn-icon" src="../assets/images/seta_baixo.png" alt="">
-                            </button>
-                            <div class="collapse collapse-edit" id="collapseExample2">
-                                <div class="card card-body filtro-card">
-                                    <input type="button" value="Maior" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'maior', 0)">
-                                    <input type="button" value="Menor" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'avaliacao', 'menor', 0)">
-                                </div>
-                            </div>
-                            <hr>
-                            <a class="nav-btn sidebar-nav-btn">
-                                <input type="button" value="Gerar Receita ⬈">
+                            <a href="../pages/usuario.php" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Meu perfil ⬈">
                             </a>
-                            <form action="../config/logout.php">
-                                <a class="nav-btn sidebar-nav-btn">
-                                    <input type="submit" value="Sair" style="margin-top: 3px;">
-                                </a>
-                            </form>
+                            <a href="../pages/minhas_receitas.php" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Minhas receitas ⬈">
+                            </a>
                             <div class="footer-nav">
                                 <div class="left-section">
                                     <a href="#">Sobre Nós</a>
@@ -192,8 +119,33 @@
                     <div class="container_title">
                         <input type="text" name="receita" id="receita">
                     </div>
-                    <section>
-                        
+                    <section class="section_gerar_receita section-container" id="receitas">
+                        <div class="container_input">
+                            <div class="container_inpur_rec">
+                                <h2>Gerar receitas</h2>
+                                <p>Crie uma receita com os ingredientes disponíveis em casa</p>
+                            </div>
+                            <form id="form_gerar_receitas">
+                                <div class="container_input_rec input_rec">
+                                    <input
+                                        type="text" name="ingredientes_values"
+                                        id="ingredientes_value"
+                                        placeholder=" "
+                                        required
+                                        data-bs-container="body"
+                                        data-bs-toggle="popover"
+                                        data-bs-placement="bottom"
+                                        data-bs-trigger="focus"
+                                        data-bs-content='Separe seus ingredientes com ","'
+                                    >
+                                    <label for="ingredientes_value">Ingredientes</label>
+                                </div>
+                                <div class="container_input_rec"></div>
+                                <div class="container_input_rec">
+                                    <input class="botao submit_button submit_form_rec" type="submit" id="submit_form_rec" value="Gerar receita">
+                                </div>
+                            </form>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -202,6 +154,10 @@
         
         <script src="../assets/js/jquery-3.7.1.min.js"></script>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/js/script_user.js"></script>
+        <script src="../assets/js/script_rec_page.js"></script>
+        <script>
+            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+            const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        </script>
     </body>
 </html>

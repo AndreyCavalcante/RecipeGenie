@@ -101,9 +101,9 @@
                                 </div>
                             </div>
                             <hr>
-                            <a class="nav-btn sidebar-nav-btn">
+                            <a href="receita.php" class="nav-btn sidebar-nav-btn">
                                 <input type="button" value="Gerar Receita ⬈">
-                            </a>
+                            </ah>
                             <form action="../config/logout.php">
                                 <a class="nav-btn sidebar-nav-btn">
                                     <input type="submit" value="Sair" style="margin-top: 3px;">
@@ -171,7 +171,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <a class="nav-btn sidebar-nav-btn">
+                            <a href="receita.php" class="nav-btn sidebar-nav-btn">
                                 <input type="button" value="Gerar Receita ⬈">
                             </a>
                             <form action="../config/logout.php">
@@ -204,5 +204,6 @@
         <script src="../assets/js/jquery-3.7.1.min.js"></script>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/js/script_user.js"></script>
+        <script src="../assets/js/script_visualizar.js"></script>
     </body>
 </html>

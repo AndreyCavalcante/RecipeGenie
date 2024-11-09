@@ -1,6 +1,6 @@
 <?php
 
-    require __DIR__ . '/../vendor/autoload.php';
+    require(__DIR__ . '/../vendor/autoload.php');
 
     use Dotenv\Dotenv;
     use GuzzleHttp\Client;
@@ -9,7 +9,7 @@
     $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
     $dotenv->load();
 
-    $ingredientes = ['ovo', 'leite', 'pao', 'alface'];
+    $ingredientes = $_POST['lista'];
 
     $apiKey = $_ENV['API_KEY'] ?? 'default_value';
 
@@ -28,7 +28,7 @@
                     ['etapa' => 'Primeira etapa'],
                     ['etapa' => 'Segunda etapa']
                 ],
-                'tabela_nutri' => [
+                'tab_nutri' => [
                     'porcao' => '100 gramas',
                     'informacoes' => [
                         ['item' => 'Valor energético', 'quant' => '140 kcal'],
@@ -46,8 +46,6 @@
             ]
         ]
     ]);
-
-    $erro = "";
 
     function gerar_receitas($ingredientes, $apiKey, $modelo){
         $client = new Client([
@@ -81,17 +79,17 @@
                 $receita = json_decode($receitaJson, true);
 
                 if (json_last_error() === JSON_ERROR_NONE) {
-                    echo "<pre>" . print_r($receita, true) . "</pre>";
+                    echo json_encode($receita);
                 } else {
-                    echo "Erro ao decodificar a resposta da API em JSON.";
+                    echo json_encode(array('error'=>'Erro ao gerar receita'));
                 }
 
             } else {
-                echo "Nenhuma receita foi gerada.";
+                echo json_encode(array('error'=>'Erro ao gerar'));
             }
 
         }catch (RequestException $e){
-            $erro = 'Erro ao gerar a receita: ' . $e->getMessage();
+            echo json_encode(array('error'=>'Erro ao tentar gerar receita'.$e));
         }
     }
 

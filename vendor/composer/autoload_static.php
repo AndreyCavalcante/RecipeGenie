@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3
+class ComposerStaticInit56da03d4d6d2644046272b6203790c83
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
@@ -21,14 +21,11 @@ class ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
-            'Symfony\\Contracts\\EventDispatcher\\' => 34,
-            'Symfony\\Component\\EventDispatcher\\' => 34,
         ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
-            'Psr\\EventDispatcher\\' => 20,
             'PhpOption\\' => 10,
         ),
         'G' => 
@@ -57,14 +54,6 @@ class ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Symfony\\Contracts\\EventDispatcher\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts',
-        ),
-        'Symfony\\Component\\EventDispatcher\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
-        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -73,10 +62,6 @@ class ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3
         'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
-        ),
-        'Psr\\EventDispatcher\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/event-dispatcher/src',
         ),
         'PhpOption\\' => 
         array (
@@ -104,28 +89,6 @@ class ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'G' => 
-        array (
-            'Guzzle\\Stream' => 
-            array (
-                0 => __DIR__ . '/..' . '/guzzle/stream',
-            ),
-            'Guzzle\\Parser' => 
-            array (
-                0 => __DIR__ . '/..' . '/guzzle/parser',
-            ),
-            'Guzzle\\Http' => 
-            array (
-                0 => __DIR__ . '/..' . '/guzzle/http',
-            ),
-            'Guzzle\\Common' => 
-            array (
-                0 => __DIR__ . '/..' . '/guzzle/common',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -138,10 +101,9 @@ class ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit23e3c23cb8c9994cf73cacb6d4cecbf3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit56da03d4d6d2644046272b6203790c83::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit56da03d4d6d2644046272b6203790c83::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit56da03d4d6d2644046272b6203790c83::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,0 +1,72 @@
+.section_gerar_receita{
+    min-height: calc(100vh - 16vh);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container_input_rec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_rec{
+    position: relative;
+    margin-top: 15px;
+}
+
+.input_rec input{
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ccc;
+    margin-top: -15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+.input_rec label{
+    position: absolute;
+    left: 50px;
+    top: -5px;
+    transform: translate(-50%);
+    transition: all 0.5s ease-in-out;
+    color: #8b8b8b;
+}
+
+.input_rec input:focus + label,
+.input_rec input:not(:placeholder-shown) + label{
+    top: -17px;
+    font-size: 12px;
+    color: #838383;
+}
+
+.submit_form_rec{
+    font-size: 20px;
+    margin: 10px;
+}
+
+.receitas_page a{
+    margin: 3px;
+}
+
+.loading_recipes{
+    font-size: 22px;
+}
+
+@media (max-width: 600px){
+    .input_rec input{
+        width: 300px;
+    }
+}

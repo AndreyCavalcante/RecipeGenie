@@ -20,6 +20,9 @@
         case "delete_receita":
             delete_receita($connect);
             break;
+        case "salvar_receita":
+            salvar_receita($connect);
+            break;
         default:
             break;
     }
@@ -133,4 +136,22 @@
             echo json_encode(false);
         }
         
+    }
+
+    function salvar_receita($connect){
+        $id = $connect->real_escape_string($_POST['id']);
+        
+        if (is_array($_POST['receita'])) {
+            $receita = json_encode($_POST['receita'], JSON_UNESCAPED_UNICODE);
+        } else {
+            $receita = $_POST['receita'];
+        }
+
+        $sql = "INSERT INTO receita (receita, avaliacao, fk_user) VALUES ('$receita', 0, $id)";
+
+        if($connect->query($sql) === true){
+            echo json_encode(true);
+        }else{
+            echo json_encode(false);
+        }
     }
