@@ -155,8 +155,8 @@ function visualizar_receita(id){
 
                 let tabela = receita.tab_nutri
 
-                porcoes = receita.porcoes / 10
-                porcao_inicial = receita.porcoes / 10
+                porcoes = parseInt(receita.porcoes)
+                porcao_inicial = parseInt(receita.porcoes)
 
                 let receita_view = `
                     <div class="receita">
