@@ -48,7 +48,7 @@ function feedback(avaliacao, id_receita){
         dataType: 'json',
         success: function(result){
             if (result){
-                window.location.reload()
+                stars_function(avaliacao, id_receita);
             }else{
                 alerta_temporario('Erro', 'Erro ao tentar avaliar receita', 3000)
             }
@@ -62,6 +62,9 @@ function feedback(avaliacao, id_receita){
 }
 
 function stars_function(avaliacao, id_receita){
+
+    let div = document.getElementById('container_stars_function');
+
     let stars_div = `
         <div class="stars_container">
     `; 
@@ -83,7 +86,7 @@ function stars_function(avaliacao, id_receita){
 
     stars_div += `</div>`;
 
-    return stars_div
+    div.innerHTML = stars_div
 
 }
 
@@ -210,7 +213,9 @@ function visualizar_receita(id){
                         <div class="title_recipe">
                             <div style="display: flex; align-items: center;">
                                 <h3>${receita.nome} </h3>
-                                ${stars_function(result[0].avaliacao, result[0].id_receita)}
+                                <div id="container_stars_function">
+
+                                </div>
                             </div>
                             <img class="image_button image_seta" src="../assets/images/seta.png" width="40px" onclick="reload_page()">
                         </div>
@@ -249,6 +254,7 @@ function visualizar_receita(id){
                 div.innerHTML = receita_view;
 
                 ingredientes(receita.ingredientes, 0)
+                stars_function(result[0].avaliacao, result[0].id_receita)
             }
         },
         error: function(xhr,status,error){
