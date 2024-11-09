@@ -20,7 +20,7 @@ function reload_page(){
 }
 
 function changeEmoji() {
-    const emojis = ["🍕","🍟", "🌭", "🍿", "🍰", "🥪","🍨"];
+    const emojis = ["🍕","🍟", "🌭", "🍿", "🍰", "🥪","🍨", "🥞", "🍱", "🍫", "🍹", "☕", "🦞","🍜", "🥗", "🥕", "🍩", "🍵", "🥟", "🍖", "🥑", "🍎", "🍳", "🍡", "🥧"];
     let index = 0;
 
     const loadingEmoji = document.getElementById("loader_modal_rec");
@@ -55,6 +55,10 @@ function loader(value, title = ''){
 
         document.querySelector('.modal-backdrop').remove();
     }
+}
+
+function teste_modal(){
+    loader(true, "Testando")
 }
 
 function renderizarIngredientes(ingredientes) {

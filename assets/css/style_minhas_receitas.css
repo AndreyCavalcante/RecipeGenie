@@ -1,0 +1,274 @@
+body {
+    background-color: #FCF9EF;
+    height: 100%;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 300px;
+    background-color: #e6e5e3;
+    padding-top: 20px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+}
+
+.sidebar a, .sidebar button{
+    color: #0c0628;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 5px 20px;
+}
+
+.nav-edit {
+    padding: 5px;
+}
+
+.main-container {
+    margin-left: 300px;
+    padding: 30px;
+}
+
+.section-container {
+    position: relative;
+    border: #cdcdcd solid 3px;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.side-list{
+    position: relative;
+}
+
+.footer-nav{
+    position: absolute;
+    left: 40px;
+    top: 160%;
+    width: 285px;
+    margin-left: -30px;
+    border-top: 3px solid #ccc;
+}
+
+.footer-nav-expand{
+    margin-top: 20px;
+}
+
+.left-section {
+    display: flex;
+    gap: 3px;
+}
+
+.side-list hr{
+    width: 280px;
+    margin-left: -20px;
+}
+
+.horizontal_edit{
+    margin-right: 10px;
+}
+
+.custom_table{
+    width: 350px;
+    border: 3px solid #DEE2E6;
+}
+
+.sidebar-button {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-text {
+    flex: 1;
+    text-align: left;
+}
+
+.btn-icon {
+    width: 20px;
+    margin-left: auto;
+}
+
+.sidebar-nav-btn input{
+    width: 200px;
+}
+
+.collapse-edit{
+    width: 200px;
+    margin-left: 20px;
+    font-size: 20px;
+    background: none;
+}
+
+.collapse_button{
+    border: none;
+    background-color: #e6e5e3;
+}
+
+.collapse_button:hover{
+    background-color: #d8d7d6;
+    transform: scale(1.1);
+}
+
+.filtro-card{
+    background-color: #e6e5e3;
+}
+
+.side-bar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-bar-pesq{
+    position: relative;
+    margin-right: 10px;
+}
+
+.side-bar-pesq input{
+    height: 33px;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+}
+
+.side-bar-pesq button{
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    padding: 0px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.footer_usuarios{
+    display: none;
+}
+
+.delete{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+}
+
+.button_delete{
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    bottom: 5px;
+    right: 5px;
+}
+
+.button_delete img{
+    border-radius: 3px;
+    width: 40px;
+    transition: all 0.5s ease;
+}
+
+.button_delete img:hover{
+    box-shadow: rgba(255, 0, 0, 0.3) 0px 4px 6px, rgba(255, 0, 0, 0.3) 0px -4px 6px, rgba(255, 0, 0, 0.3) 0px 4px 6px, rgba(255, 0, 0, 0.3) 0px 4px 6px, rgba(255, 0, 0, 0.3) 0px -4px 6px;
+}
+
+.button_star{
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-container {
+        margin-left: 0;
+    }
+
+    .custom_table{
+        width: 300px;
+        margin-bottom: 30px;
+    }
+
+    .card_recipes{
+        width: 310px;
+    }
+
+    .collapse-edit{
+        margin-left: 0px;
+        margin-bottom: 3px;
+    }
+
+    .sidebar-button{
+        margin-bottom: 3px;
+        width: 200px;
+    }
+
+    .side-bar-container{
+        margin-bottom: 20px;
+    }
+
+    .footer_usuarios{
+        display: flex;
+    }
+    
+    .main-container{
+        min-height: 600px;
+    }
+}
+
+@media (max-height: 900px) {
+    .sidebar {
+        height: 100vh;
+    }
+}
+
+.stars_container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.star {
+    font-size: 24px;
+    color: lightgray;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star.active {
+    color: gold;
+}
+
+.image_button{
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.image_button:hover{
+    box-shadow: rgba(248, 192, 49, 0.300) 0px 4px 6px, rgba(248, 192, 49, 0.300) 0px -4px 6px, rgba(248, 193, 49, 0.300) 0px 4px 6px, rgba(248, 193, 49, 0.300) 0px 4px 6px, rgba(248, 193, 49, 0.300) 0px -4px 6px;
+}
+
+.image_seta{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+}
+
+.container_title{
+    margin-top: 50px;
+    text-align: center;
+}

@@ -2,7 +2,7 @@
 
     session_start();
 
-    if((!isset($_SESSION['email']) === TRUE) and (!isset($_SESSION['senha']) === TRUE)){
+    if((!isset($_SESSION['email']) === TRUE) || (!isset($_SESSION['id_user']) === TRUE)){
         session_unset();
         session_destroy();
         echo "
@@ -23,11 +23,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RecipeGenie - Receitas</title>
+        <title>RecipeGenie - Minhas receitas</title>
 
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/global.css">
-        <link rel="stylesheet" href="../assets/css/style_user.css">
+        <link rel="stylesheet" href="../assets/css/style_minhas_receitas.css">
 
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     </head>
@@ -87,7 +87,7 @@
                                 <div class="card card-body filtro-card">
                                     <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 1, 0)">
                                     <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 2, 0)">
-                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3, 0)">
+                                    <input type="button" value="+30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3, 0)">
                                 </div>
                             </div>
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
@@ -160,7 +160,7 @@
                                 <div class="card card-body filtro-card">
                                     <input type="button" value="-15 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 1, 0)">
                                     <input type="button" value="15 - 30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 2, 0)">
-                                    <input type="button" value="+30m minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3, 0)">
+                                    <input type="button" value="+30 minutos" class="collapse_button" onclick="buscar_filtro(<?php echo $id_user?>, 'tempo', 3, 0)">
                                 </div>
                             </div>
                             <button class="btn botao sidebar-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">

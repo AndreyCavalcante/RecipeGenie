@@ -392,7 +392,7 @@ function delete_receita(id, nome){
     
                 if(result){
                     alerta_temporario("Sucesso!", "Receita deletada com sucesso!", 3000)
-                    window.reload()
+                    window.location.reload()
                 }else{
                     alerta_temporario('Erro', "Erro ao tentar excluir a receita", 3000)
                 }

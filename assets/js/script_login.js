@@ -8,7 +8,9 @@ function alerta_temporario(titulo, mensagem, tempo) {
 
     setTimeout(function() {
         modal.hide();
-        document.body.classList.remove('modal-open'); 
+        document.body.classList.remove('modal-open');
+        let modal_remove = document.getElementById('exampleModal');
+        modal_remove.classList.remove('show');
         document.querySelector('.modal-backdrop').remove();
     }, tempo);
 }

@@ -1,13 +1,12 @@
 <?php
-
     session_start();
 
-    if((!isset($_SESSION['email']) === TRUE) || (!isset($_SESSION['id_user']) === TRUE)){
+    if((!isset($_SESSION['email']) === true) || (!isset($_SESSION['id_user']) === true)){
         session_unset();
         session_destroy();
         echo "
             <script>
-                window.location.href = 'login.php';
+                window.location.href = '../index.php';
             </script>
         ";
     }
@@ -23,12 +22,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RecipeGenie - Gerar receita</title>
+        <title>RecipeGenie - Meu Perfil</title>
 
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/global.css">
         <link rel="stylesheet" href="../assets/css/style_minhas_receitas.css">
-        <link rel="stylesheet" href="../assets/css/style_receita.css">
+        <link rel="stylesheet" href="../assets/css/style_user.css">
 
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     </head>
@@ -67,11 +66,15 @@
                     <!-- NavBar Vertical expandida-->
                     <ul class="navbar-nav d-lg-none nav-vertical-edit">
                         <div class="side-bar-container receitas_page">
-                            <a href="../pages/usuario.php" class="nav-btn sidebar-nav-btn">
-                                <input type="button" value="Meu perfil ⬈">
+                            <a href="" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Editar Perfil">
                             </a>
+                            <hr>
                             <a href="../pages/minhas_receitas.php" class="nav-btn sidebar-nav-btn">
                                 <input type="button" value="Minhas receitas ⬈">
+                            </a>
+                            <a href="../pages/receita.php" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Gerar receita ⬈">
                             </a>
                             <form action="../config/logout.php">
                                 <a class="nav-btn sidebar-nav-btn">
@@ -98,11 +101,15 @@
                 <div class="col-lg-3">
                     <div class="sidebar">
                         <ul class="side-list">
-                            <a href="../pages/usuario.php" class="nav-btn sidebar-nav-btn">
-                                <input type="button" value="Meu perfil ⬈">
+                            <a href="" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Editar Perfil">
                             </a>
-                            <a href="../pages/minhas_receitas.php" class="nav-btn sidebar-nav-btn">
+                            <hr>
+                            <a href="minhas_receitas.php" class="nav-btn sidebar-nav-btn">
                                 <input type="button" value="Minhas receitas ⬈">
+                            </a>
+                            <a href="receita.php" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Gerar receita ⬈">
                             </a>
                             <div class="footer-nav">
                                 <div class="left-section">
@@ -116,33 +123,8 @@
                     </div>
                 </div>
                 <div class="col-lg-9 main-container">
-                    <section class="section_gerar_receita section-container" id="receitas">
-                        <div class="container_input">
-                            <div class="container_inpur_rec">
-                                <h2>Gerar receitas</h2>
-                                <p>Crie uma receita com os ingredientes disponíveis em casa</p>
-                            </div>
-                            <form id="form_gerar_receitas">
-                                <div class="container_input_rec input_rec">
-                                    <input
-                                        type="text" name="ingredientes_values"
-                                        id="ingredientes_value"
-                                        placeholder=" "
-                                        required
-                                        data-bs-container="body"
-                                        data-bs-toggle="popover"
-                                        data-bs-placement="bottom"
-                                        data-bs-trigger="focus"
-                                        data-bs-content='Separe seus ingredientes com ","'
-                                    >
-                                    <label for="ingredientes_value">Ingredientes</label>
-                                </div>
-                                <div class="container_input_rec"></div>
-                                <div class="container_input_rec">
-                                    <input class="botao submit_button submit_form_rec" type="submit" id="submit_form_rec" value="Gerar receita">
-                                </div>
-                            </form>
-                        </div>
+                    <section class="section-container section_user" id="receitas">
+                        
                     </section>
                 </div>
             </div>
