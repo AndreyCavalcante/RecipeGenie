@@ -31,7 +31,7 @@
 
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     </head>
-    <body class="container-fluid">
+    <body class="container-fluid" onload="buscar_dados_user(<?php echo $id_user?>)">
         <input type="hidden" name="id_user" id="id_user" value="<?php echo $id_user?>">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -124,7 +124,25 @@
                 </div>
                 <div class="col-lg-9 main-container">
                     <section class="section-container section_user" id="receitas">
-                        
+                        <div class="perfil-container">
+                            <div class="nome_user">
+                                <h1><?php echo "$nome $sobrenome"?></h1>
+                            </div>
+                            <div class="email_user">
+                                <h3>Email: <?php echo $email?></h3>
+                            </div>
+                            <div class="tabela_dados" class="tabela_dados">
+                                <h4>Receitas</h4>
+                                <table class="table table-striped-columns edit-table" id="tabela_user" style="color: #0c0628;">
+                                    <tr>
+                                        <th>Salgadas</th>
+                                        <th>Doces</th>
+                                        <th>Fitness</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>

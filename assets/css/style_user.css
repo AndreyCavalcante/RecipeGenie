@@ -5,3 +5,29 @@
     justify-content: center;
     align-items: center;
 }
+
+.tabela_dados{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-table{
+    width: 400px;
+    color: #0c0628;
+}
+
+.perfil-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 600px){
+    .edit-table{
+        width: 320px;
+    }
+}
