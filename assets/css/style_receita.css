@@ -65,6 +65,10 @@
     font-size: 22px;
 }
 
+.footer-nav{
+    top: 500%;
+}
+
 @media (max-width: 600px){
     .input_rec input{
         width: 300px;

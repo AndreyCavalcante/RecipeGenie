@@ -70,8 +70,8 @@
                             <a href="../pages/usuario.php" class="nav-btn sidebar-nav-btn">
                                 <input type="button" value="Meu perfil ⬈">
                             </a>
-                            <a class="nav-btn sidebar-nav-btn">
-                                <input type="button" value="Gerar Receita ⬈">
+                            <a href="../pages/minhas_receitas.php" class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Minhas receitas ⬈">
                             </a>
                             <form action="../config/logout.php">
                                 <a class="nav-btn sidebar-nav-btn">
@@ -116,9 +116,6 @@
                     </div>
                 </div>
                 <div class="col-lg-9 main-container">
-                    <div class="container_title">
-                        <input type="text" name="receita" id="receita">
-                    </div>
                     <section class="section_gerar_receita section-container" id="receitas">
                         <div class="container_input">
                             <div class="container_inpur_rec">

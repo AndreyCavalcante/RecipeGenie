@@ -40,6 +40,53 @@ function stars(avaliacao){
 
 }
 
+function feedback(avaliacao, id_receita){
+    $.ajax({
+        url: '../config/manter_receitas.php',
+        method: 'POST',
+        data: {'form': 'edit_avaliacao', 'avaliacao': avaliacao, 'id_receita': id_receita},
+        dataType: 'json',
+        success: function(result){
+            if (result){
+                window.location.reload()
+            }else{
+                alerta_temporario('Erro', 'Erro ao tentar avaliar receita', 3000)
+            }
+        },
+        error: function(xhr, status, error){
+            console.log(xhr.responseText)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
+function stars_function(avaliacao, id_receita){
+    let stars_div = `
+        <div class="stars_container">
+    `; 
+
+    let cont = 1
+
+    for(let i = 0; i < avaliacao; i++){
+        let star = `<button class="star button_star active" onclick="feedback(${i + 1}, ${id_receita})">&#9733;</button>`
+
+        stars_div += star
+        cont ++
+    }
+
+    for (let j = 0; j < (5 - avaliacao); j++){
+        let star = `<button class="star button_star" onclick="feedback(${cont + j}, ${id_receita})">&#9733;</button>`
+
+        stars_div += star
+    }
+
+    stars_div += `</div>`;
+
+    return stars_div
+
+}
+
 function reload_page(){
     window.location.reload();
 }
@@ -163,7 +210,7 @@ function visualizar_receita(id){
                         <div class="title_recipe">
                             <div style="display: flex; align-items: center;">
                                 <h3>${receita.nome} </h3>
-                                ${stars(result[0].avaliacao)}
+                                ${stars_function(result[0].avaliacao, result[0].id_receita)}
                             </div>
                             <img class="image_button image_seta" src="../assets/images/seta.png" width="40px" onclick="reload_page()">
                         </div>

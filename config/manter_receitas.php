@@ -23,6 +23,9 @@
         case "salvar_receita":
             salvar_receita($connect);
             break;
+        case 'edit_avaliacao':
+            editar_avaliacao($connect);
+            break;
         default:
             break;
     }
@@ -151,6 +154,19 @@
 
         if($connect->query($sql) === true){
             echo json_encode(true);
+        }else{
+            echo json_encode(false);
+        }
+    }
+
+    function editar_avaliacao($connect){
+        $id_receita = $_POST['id_receita'];
+        $avaliacao = $_POST['avaliacao'];
+
+        $sql = "UPDATE receita SET avaliacao = $avaliacao WHERE id_receita = $id_receita";
+
+        if ($connect->query($sql) === true){
+            echo json_encode(value: true);
         }else{
             echo json_encode(false);
         }
