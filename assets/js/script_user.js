@@ -51,6 +51,7 @@ function calcular_porcoes(porcoes, quant, old_porcoes) {
     return (quant / old_porcoes) * porcoes;
 }
 
+// Função que atualiza a lista de ingredientes e porções
 function ingredientes(lista, multi) {
     let div = document.querySelector('.ingre_list');
     let span = document.getElementById('porcoes');
@@ -59,15 +60,17 @@ function ingredientes(lista, multi) {
         lista = JSON.parse(lista);
     }
 
+    // Atualizar o número de porções globalmente
     porcoes = porcoes + multi;
     if (porcoes < 1) {
-        porcoes = 1;
+        porcoes = 1; // Limita a no mínimo 1 porção
     }
 
     let texto = `<ul>`;
 
     lista.forEach(function(ingrediente) {
-        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial) / 10;
+        // Calcular a nova quantidade com base nas porções
+        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial) / 10; // Suponho que 2 seja a porção original no banco
         let li = `<li>${ingrediente.nome}: ${nova_quantidade.toFixed(1)} ${ingrediente.uni_medida}</li>`;
         texto += li;
     });
@@ -76,6 +79,7 @@ function ingredientes(lista, multi) {
 
     let span_text = `Porções: ${porcoes}`;
 
+    // Atualizar o HTML
     div.innerHTML = texto;
     span.innerText = span_text;
 }
@@ -228,9 +232,10 @@ function buscar_receitas(id){
 
                 section.innerHTML = texto;
             }else{
-                result.forEach(function(receitaObj) {
-                    let receitaDetalhes = JSON.parse(receitaObj.receita); 
-                
+                result.forEach(function(receitaObj){
+
+                    let receitaDetalhes = JSON.parse(receitaObj.receita)
+
                     texto += `
                         <div class="col-sm-6">
                             <div class="card card_recipes">
@@ -245,7 +250,7 @@ function buscar_receitas(id){
                             </div>
                         </div>
                     `;
-                });
+                })
 
                 section.innerHTML = texto;
             }
@@ -288,9 +293,10 @@ function buscar_filtro(id, filtro, valor, pesq_value){
 
                 section.innerHTML = texto;
             }else{
-                result.forEach(function(receitaObj) {
-                    let receitaDetalhes = JSON.parse(receitaObj.receita); 
-                
+                result.forEach(function(receitaObj){
+
+                    let receitaDetalhes = JSON.parse(receitaObj.receita)
+
                     texto += `
                         <div class="col-sm-6">
                             <div class="card card_recipes">
@@ -305,7 +311,7 @@ function buscar_filtro(id, filtro, valor, pesq_value){
                             </div>
                         </div>
                     `;
-                });
+                })
 
                 section.innerHTML = texto;
             }
@@ -333,7 +339,7 @@ function delete_receita(id, nome){
     
                 if(result){
                     alerta_temporario("Sucesso!", "Receita deletada com sucesso!", 3000)
-                    window.location.reload()
+                    window.reload()
                 }else{
                     alerta_temporario('Erro', "Erro ao tentar excluir a receita", 3000)
                 }
