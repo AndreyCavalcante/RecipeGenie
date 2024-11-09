@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-lg-9 main-container">
                     <div class="container_title">
-                        
+                        <input type="text" name="receita" id="receita">
                     </div>
                     <section class="section_gerar_receita section-container" id="receitas">
                         <div class="container_input">
@@ -151,7 +151,7 @@
             </div>
         </div>
 
-
+        
         <script src="../assets/js/jquery-3.7.1.min.js"></script>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/js/script_rec_page.js"></script>
