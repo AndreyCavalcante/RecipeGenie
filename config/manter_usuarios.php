@@ -113,9 +113,57 @@
         $sobre = $connect->real_escape_string($_POST['sobre']);
         $email = $connect->real_escape_string($_POST['email']);
 
+        $sql = "UPDATE 
+                    usuarios 
+                SET 
+                    nome_user = '$nome', 
+                    sobrenome_user = '$sobre',
+                    email = '$email'
+                WHERE
+                    id_user = $id
+        ";
 
+        if($connect->query($sql) === true){
+            echo json_encode(true);
+        }else{
+            echo json_encode(false);
+        }
     }
 
     function alterar_senha($connect){
-        
+        $id = $connect->real_escape_string($_POST['id']);
+        $senha_atual = $connect->real_escape_string($_POST['senha_atual']);
+        $senha_nova = $connect->real_escape_string($_POST['senha_nova']);
+
+        $sql = "SELECT senha FROM usuarios WHERE id_user = $id";
+
+        $result = $connect->query($sql);
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+
+            if (password_verify($senha_atual, $row['senha'])){
+                
+                $senha_hash = password_hash($senha_nova, PASSWORD_DEFAULT);
+
+                $sql = "UPDATE 
+                            usuarios
+                        SET
+                            senha = '$senha_hash'
+                        WHERE
+                            id_user = $id
+                ";
+
+                if($connect->query($sql) === true){
+                    echo json_encode(array('sucesso'=>'Senha alterada com secesso!'));
+                }else{
+                    echo json_encode(array('error'=>'Erro ao alterar a senha'));
+                }
+
+            }else{
+                echo json_encode(array('error'=>'Senha atual não existente'));
+            }
+        }else{
+            echo json_encode(array('error'=>'Nenhum peril encontrado'));
+        }
     }

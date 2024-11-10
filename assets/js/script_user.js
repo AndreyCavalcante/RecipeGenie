@@ -285,11 +285,11 @@ $(document).on('submit', '#form_editar_senha', function(e){
             success: function(result){
                 loader(false);
 
-                if(result){
+                if('sucesso' in result){
                     alerta_temporario('Sucesso!', 'Senha alterada com sucesso!', 3000)
                     window.location.href = '../config/logout.php';
                 }else{
-                    alerta_temporario('Erro!', 'Erro ao tentar alterar a senha, tente novamente mais tarde', 3000)
+                    alerta_temporario('Erro!', result.error, 3000)
                 }
             },
             error: function(xhr, status, error){
