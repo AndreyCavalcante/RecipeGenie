@@ -26,6 +26,9 @@
         case 'edit_avaliacao':
             editar_avaliacao($connect);
             break;
+        case 'count_receitas';
+            count_receitas($connect);
+            break;
         default:
             break;
     }
@@ -169,5 +172,31 @@
             echo json_encode(value: true);
         }else{
             echo json_encode(false);
+        }
+    }
+
+    function count_receitas($connect){
+        $id = $_POST['id'];
+
+        $sql = "
+            SELECT
+                SUM(JSON_CONTAINS(JSON_EXTRACT(receita, '$.categoria'), '\"doce\"')) AS doces,
+                SUM(JSON_CONTAINS(JSON_EXTRACT(receita, '$.categoria'), '\"salgado\"')) AS salgadas,
+                SUM(JSON_CONTAINS(JSON_EXTRACT(receita, '$.categoria'), '\"fitness\"')) AS fitness,
+                count(receita) AS total
+            FROM
+                receita
+            WHERE
+                fk_user = $id;
+        ";
+
+        $result = $connect->query($sql);
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+
+            echo json_encode($row);
+        }else{
+            echo json_encode(array('error'=>'Nenhuma receita registrada'));
         }
     }

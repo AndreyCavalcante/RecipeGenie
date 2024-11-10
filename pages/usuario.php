@@ -26,6 +26,7 @@
 
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/global.css">
+        <link rel="stylesheet" href="../assets/css/style_cad.css">
         <link rel="stylesheet" href="../assets/css/style_minhas_receitas.css">
         <link rel="stylesheet" href="../assets/css/style_user.css">
 
@@ -66,8 +67,8 @@
                     <!-- NavBar Vertical expandida-->
                     <ul class="navbar-nav d-lg-none nav-vertical-edit">
                         <div class="side-bar-container receitas_page">
-                            <a href="" class="nav-btn sidebar-nav-btn">
-                                <input type="button" value="Editar Perfil">
+                            <a class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Editar Perfil" onclick="form_editar(<?php echo $id_user?>, '<?php echo $nome?>', '<?php echo $sobrenome?>', '<?php echo $email?>')">
                             </a>
                             <hr>
                             <a href="../pages/minhas_receitas.php" class="nav-btn sidebar-nav-btn">
@@ -101,8 +102,8 @@
                 <div class="col-lg-3">
                     <div class="sidebar">
                         <ul class="side-list">
-                            <a href="" class="nav-btn sidebar-nav-btn">
-                                <input type="button" value="Editar Perfil">
+                            <a class="nav-btn sidebar-nav-btn">
+                                <input type="button" value="Editar Perfil" onclick="form_editar(<?php echo $id_user?>, '<?php echo $nome?>', '<?php echo $sobrenome?>', '<?php echo $email?>')">
                             </a>
                             <hr>
                             <a href="minhas_receitas.php" class="nav-btn sidebar-nav-btn">
@@ -131,16 +132,9 @@
                             <div class="email_user">
                                 <h3>Email: <?php echo $email?></h3>
                             </div>
-                            <div class="tabela_dados" class="tabela_dados">
-                                <h4>Receitas</h4>
-                                <table class="table table-striped-columns edit-table" id="tabela_user" style="color: #0c0628;">
-                                    <tr>
-                                        <th>Salgadas</th>
-                                        <th>Doces</th>
-                                        <th>Fitness</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </table>
+                            <div class="tabela_dados" id="tabela_dados">
+                                <h3>Receitas</h3>
+                                
                             </div>
                         </div>
                     </section>
@@ -151,7 +145,7 @@
         
         <script src="../assets/js/jquery-3.7.1.min.js"></script>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/js/script_rec_page.js"></script>
+        <script src="../assets/js/script_user.js"></script>
         <script>
             const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
             const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))

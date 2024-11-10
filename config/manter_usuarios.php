@@ -19,6 +19,12 @@
         case 'buscar_email':
             buscar_email($connect);
             break;
+        case 'alterar_user':
+            alterar_user($connect);
+            break;
+        case 'alterar_senha':
+            alterar_senha($connect);
+            break;
         default:
             break;
     }
@@ -99,4 +105,17 @@
         }
 
         echo json_encode($status);
+    }
+
+    function alterar_user($connect){
+        $id = $connect->real_escape_string($_POST['id']);
+        $nome = $connect->real_escape_string($_POST['nome']);
+        $sobre = $connect->real_escape_string($_POST['sobre']);
+        $email = $connect->real_escape_string($_POST['email']);
+
+
+    }
+
+    function alterar_senha($connect){
+        
     }
