@@ -237,9 +237,10 @@ $(document).on('submit', '#form_editar_user', function(e){
     let sobre = $('#sobrenome_user').val();
     let email = $('#email_user').val();
 
-    verificar_email(email);
+    
+    loader(true, "Alterando dado(s)")
 
-    if(validacoes['email'] === true){
+    if(verificar_email(email)){
         $.ajax({
             url: '../config/manter_usuarios.php',
             method: 'POST',
@@ -250,7 +251,7 @@ $(document).on('submit', '#form_editar_user', function(e){
 
                 if(result){
                     alerta_temporario('Sucesso!', 'Dado(s) alterado(s) com sucesso!', 3000)
-                    window.location.reload()
+                    window.location.href = '../config/logout.php';
                 }else{
                     alerta_temporario('Erro!', 'Erro ao tentar alterar seu(s) dado(s), tente novamente mais tarde', 3000)
                 }
@@ -261,6 +262,9 @@ $(document).on('submit', '#form_editar_user', function(e){
                 console.log(error)
             }
         });
+    }else{
+        loader(false)
+        alerta_temporario('Erro!', 'Email inválido', 3000)
     }
 });
 
@@ -287,7 +291,9 @@ $(document).on('submit', '#form_editar_senha', function(e){
 
                 if('sucesso' in result){
                     alerta_temporario('Sucesso!', 'Senha alterada com sucesso!', 3000)
-                    window.location.href = '../config/logout.php';
+                    setTimeout(function(){
+                        window.location.href = '../config/logout.php';
+                    }, 3000);
                 }else{
                     alerta_temporario('Erro!', result.error, 3000)
                 }
@@ -307,3 +313,14 @@ $(document).on('submit', '#form_editar_senha', function(e){
         alerta_temporario('Erro ao tentar atualizar senha', 'Verifique a força da senha e tente novamente', 3000);
     }
 });
+
+function verificar_email(email){
+    const regex = /^[^\s@]{5,}@[^\s@]+\.[^\s@]+$/;
+
+    if(email === ''){
+        return false;
+    }else{
+        return regex.test(email)
+    }
+
+}
