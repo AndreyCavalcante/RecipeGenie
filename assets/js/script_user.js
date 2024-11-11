@@ -57,8 +57,8 @@ function buscar_dados_user(id){
                             <th>Total</th>
                         </tr>
                         <tr>
-                            <td>${result.doces}</td>
                             <td>${result.salgadas}</td>
+                            <td>${result.doces}</td>
                             <td>${result.fitness}</td>
                             <td>${result.total}</td>
                         </tr>
