@@ -132,6 +132,7 @@
                             <div class="email_user">
                                 <h3>Email: <?php echo $email?></h3>
                             </div>
+                            <hr>
                             <div class="tabela_dados" id="tabela_dados">
                                 <h3>Receitas</h3>
                                 
