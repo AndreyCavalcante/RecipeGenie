@@ -272,3 +272,7 @@ body {
     margin-top: 50px;
     text-align: center;
 }
+
+.section_print{
+    margin-top: 0;
+}

@@ -214,7 +214,6 @@ function visualizar_receita(id){
                             <div style="display: flex; align-items: center;">
                                 <h3>${receita.nome} </h3>
                                 <div id="container_stars_function">
-
                                 </div>
                             </div>
                             <img class="image_button image_seta" src="../assets/images/seta.png" width="40px" onclick="reload_page()">
@@ -222,7 +221,7 @@ function visualizar_receita(id){
                         <div class="info_recipes">
                             <ul>
                                 <li>
-                                    <span id="porcoes" data-porcoes="${porcoes}"></span>  
+                                    <span id="porcoes" data-porcoes="${porcoes}"></span>
                                     <img class="image_button mais_menos" src="../assets/images/mais.png" width="20px" data-ingredientes='${JSON.stringify(receita.ingredientes)}' onclick="ingredientes(this.dataset.ingredientes, 1)">
                                     <img class="image_button mais_menos" src="../assets/images/menos.png" width="20px" data-ingredientes='${JSON.stringify(receita.ingredientes)}' onclick="ingredientes(this.dataset.ingredientes, -1)">
                                 </li>
@@ -233,7 +232,6 @@ function visualizar_receita(id){
                         <div class="ingredientes">
                             <h4>Ingredientes:</h4>
                             <div class="ingre_list">
-
                             </div>
                         </div>
                         <div class="modo_de_preparo">
@@ -247,8 +245,10 @@ function visualizar_receita(id){
                                 ${tabela_nutri(tabela.informacoes)}
                             </div>
                         </div>
+                        <button class="botao submit_button" onclick="imprimir_receita(${result[0].id_receita})">Imprimir receita <img src="../assets/images/impressora.png"  width="16px"></button>
                         <button class="button_delete" onclick="delete_receita(${id}, '${receita.nome}')"><img src="../assets/images/lixeira.png"></button>
                     </div>
+
                 `;
 
                 div.innerHTML = receita_view;
@@ -406,4 +406,137 @@ function delete_receita(id, nome){
     }else{
         return
     }
+}
+
+function renderizarIngredientes(ingredientes) {
+    let texto = "<ul>";
+    ingredientes.forEach(ingrediente => {
+        texto += `<li>${ingrediente.quant} ${ingrediente.uni_medida} de ${ingrediente.nome}</li>`;
+    });
+    texto += "</ul>";
+    return texto;
+}
+
+function tabela_nutri(tabela){
+
+    let tab = `<table class="table table-striped custom_table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>`
+    ;
+
+    tabela.forEach(function(item){
+        let td = `
+            <tr>
+                <td>${item.item}</td>
+                <td>${item.quant}</td>
+            </tr>
+        `;
+
+        tab += td;
+    })
+
+    tab += `
+            </tbody>
+        </table>
+    `;
+
+    return tab;
+}
+
+function modo_de_preparo(lista) {
+    let texto = "<ul>";
+
+    for (let i = 0; i < lista.length; i++) {
+        let li = `<li>${i + 1}: ${lista[i].etapa}</li>`;
+        texto += li;
+    }
+
+    texto += "</ul>";
+
+    return texto;
+}
+
+function imprimir_receita(id) {
+    $.ajax({
+        url: '../config/manter_receitas.php',
+        method: 'POST',
+        data: {'form': 'detalhes_receita', 'id': id},
+        dataType: 'json',
+        success: function(result){
+            let receita = JSON.parse(result[0].receita);
+            let div = document.getElementById('receitas');
+            let tabela = receita.tab_nutri;
+            let porcoes = receita.porcoes;
+
+            console.log(receita.nome)
+
+            let receita_view = `
+                <div class="receita">
+                    <div class="title_recipe">
+                        <div style="display: flex; align-items: center;">
+                            <h3>${receita.nome}</h3>
+                        </div>
+                    </div>
+                    <div class="info_recipes">
+                        <ul>
+                            <li>
+                                <span id="porcoes" data-porcoes="${porcoes}">Porções: ${porcoes}</span>  
+                            </li>
+                            <li>Categoria: ${receita.categoria}</li>
+                            <li>Tempo de preparo: ${receita.tempo_de_preparo}</li>
+                        </ul>
+                    </div>
+                    <div class="ingredientes">
+                        <h4>Ingredientes:</h4>
+                        <div class="ingre_list">
+                            ${renderizarIngredientes(receita.ingredientes)}
+                        </div>
+                    </div>
+                    <div class="modo_de_preparo">
+                        <h4>Modo de preparo:</h4>
+                        ${modo_de_preparo(receita.modo_preparo)}
+                    </div>
+                </div>
+            `;
+
+            div.innerHTML = receita_view; 
+            
+            imprimir(receita.nome)
+        },
+        error: function(xhr, status, error){
+            console.log(xhr.responseText);
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
+
+function imprimir(nome){
+    const sectionContent = document.getElementById("receitas").innerHTML;
+        const printWindow = window.open('', '_blank');
+        printWindow.document.open();
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>${nome}</title>
+                <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+                <link rel="stylesheet" href="../assets/css/global.css">
+                <link rel="stylesheet" href="../assets/css/style_minhas_receitas.css">
+                <link rel="stylesheet" href="../assets/css/style_receita.css">
+            </head>
+            <body onload="window.print(); window.close();">
+                <section class="section-container section_print">
+                    <h1 class="imprimir"><img src="../assets/images/favicon.png" width="32px"> RecipeGenie</h1>
+                    ${sectionContent}
+                </section>
+            </body>
+            </html>
+    `);
+    printWindow.document.close();
+    window.location.reload()
 }
