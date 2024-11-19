@@ -162,7 +162,7 @@ function exibir_receitas(result) {
                 </div>
             </div>
             <div class="botao_salvar_receita">
-                <button class="botao submit_button" onclick="salvar_receita()">Salvar Receitas</button>
+                <button class="botao submit_button" onclick="salvar_receita()">Salvar Receita</button>
             </div>
         </div>
     `;
@@ -172,6 +172,46 @@ function exibir_receitas(result) {
 
 
 $(document).on('submit', '#form_gerar_receitas', function(e){
+    e.preventDefault();
+
+    let ingre_values = $('#ingredientes_value').val();
+
+    let ingre_list = ingre_values.split(",");
+
+    let ingredientes = [];
+    
+    ingre_list.forEach(ingrediente => {
+        ingredientes.push(ingrediente.trim())
+    });
+
+    loader(true, 'Gerando receita...')
+
+    $.ajax({
+        url: '../config/gerar_receitas.php',
+        method: 'post',
+        data: {"lista": ingredientes},
+        dataType: 'json',
+        success: function(result){
+            loader(false, 'Sucesso')
+
+            if('error' in result){
+                alerta_temporario('Erro', "Erro ao gerar a receita", 3000);
+            }else{
+                exibir_receitas(result);
+                receita_global = result.receita;
+                console.log(receita_global);
+            }
+        },
+        error: function(xhr, status, error){
+            loader(false, "Erro")
+            console.log("Erro: "+status+error)
+        }
+    });
+
+    
+});
+
+$(document).on('submit', '#form_gerar_nome', function(e){
     e.preventDefault();
 
     let ingre_values = $('#ingredientes_value').val();
