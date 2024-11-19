@@ -101,7 +101,6 @@ function calcular_porcoes(porcoes, quant, old_porcoes) {
     return (quant / old_porcoes) * porcoes;
 }
 
-// Função que atualiza a lista de ingredientes e porções
 function ingredientes(lista, multi) {
     let div = document.querySelector('.ingre_list');
     let span = document.getElementById('porcoes');
@@ -110,17 +109,15 @@ function ingredientes(lista, multi) {
         lista = JSON.parse(lista);
     }
 
-    // Atualizar o número de porções globalmente
     porcoes = porcoes + multi;
     if (porcoes < 1) {
-        porcoes = 1; // Limita a no mínimo 1 porção
+        porcoes = 1;
     }
 
     let texto = `<ul>`;
 
     lista.forEach(function(ingrediente) {
-        // Calcular a nova quantidade com base nas porções
-        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial); // Suponho que 2 seja a porção original no banco
+        let nova_quantidade = calcular_porcoes(porcoes, ingrediente.quant, porcao_inicial);
         let li = `<li>${ingrediente.nome}: ${nova_quantidade.toFixed(1)} ${ingrediente.uni_medida}</li>`;
         texto += li;
     });
@@ -129,7 +126,6 @@ function ingredientes(lista, multi) {
 
     let span_text = `Porções: ${porcoes}`;
 
-    // Atualizar o HTML
     div.innerHTML = texto;
     span.innerText = span_text;
 }

@@ -282,7 +282,7 @@ function salvar_receita(){
                     window.location.href = '../pages/minhas_receitas.php';
                 },3000);
             }else{
-                alerta_temporario('Erro!', 'Ocorreu um erro inesperado ao tentar salvar receitas');
+                alerta_temporario('Erro!', 'Ocorreu um erro inesperado ao tentar salvar a receita');
             }
         },
         error: function(xhr, status, error){
