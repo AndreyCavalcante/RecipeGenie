@@ -15,57 +15,30 @@ function alerta_temporario(titulo, mensagem, tempo) {
     }, tempo);
 }
 
-function mudar_form(value){
+function mudar_form(){
     let div = document.getElementById('receita_ingredientes');
     let msg = document.getElementById('msg_rec');
 
     let form = "";
 
-    if(value == 1){
-        msg.innerText = "Crie uma receita deliciosa pelo nome";
-        form = `<form id="form_gerar_nome">
-                    <div class="container_input_rec input_rec">
-                        <input
-                            type="text" name="ingredientes_values"
-                            id="nome_receita"
-                            placeholder=" "
-                            required
-                        >
-                        <label style="left: 60px;" for="ingredientes_value">Nome da receita</label>
-                    </div>
-                    <div class="container_input_rec"></div>
-                    <div class="container_input_rec">
-                        <input class="botao submit_button submit_form_rec" type="submit" id="submit_form_rec" value="Gerar receita">
-                    </div>
-                </form>
-                <a style="cursor: pointer;" onclick="mudar_form(2)">Deseja gerar a receita com ingredientes?</a>`;
-    }else{
 
-        msg.innerText = "Crie uma receita com os ingredientes disponíveis em casa";
-        form = `
-            <form id="form_gerar_receitas">
+    msg.innerText = "Crie uma receita deliciosa pelo nome";
+    form = `<form id="form_gerar_nome">
                 <div class="container_input_rec input_rec">
                     <input
                         type="text" name="ingredientes_values"
-                        id="ingredientes_value"
+                        id="nome_receita"
                         placeholder=" "
                         required
-                        data-bs-container="body"
-                        data-bs-toggle="popover"
-                        data-bs-placement="bottom"
-                        data-bs-trigger="focus"
-                        data-bs-content='Separe seus ingredientes com ","'
                     >
-                    <label for="ingredientes_value">Ingredientes</label>
+                    <label style="left: 60px;" for="ingredientes_value">Nome da receita</label>
                 </div>
                 <div class="container_input_rec"></div>
                 <div class="container_input_rec">
                     <input class="botao submit_button submit_form_rec" type="submit" id="submit_form_rec" value="Gerar receita">
                 </div>
             </form>
-            <a style="cursor: pointer;" onclick="mudar_form(1)">Deseja gerar receita por nome?</a>
-        `;
-    }
+            <a style="cursor: pointer;" onclick="reload_page()">Deseja gerar a receita com ingredientes?</a>`;
 
     div.innerHTML = form;
     
