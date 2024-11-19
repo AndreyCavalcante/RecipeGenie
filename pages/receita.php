@@ -120,28 +120,31 @@
                         <div class="container_input">
                             <div class="container_inpur_rec">
                                 <h2>Gerar receitas</h2>
-                                <p>Crie uma receita com os ingredientes disponíveis em casa</p>
+                                <p id="msg_rec">Crie uma receita com os ingredientes disponíveis em casa</p>
                             </div>
-                            <form id="form_gerar_receitas">
-                                <div class="container_input_rec input_rec">
-                                    <input
-                                        type="text" name="ingredientes_values"
-                                        id="ingredientes_value"
-                                        placeholder=" "
-                                        required
-                                        data-bs-container="body"
-                                        data-bs-toggle="popover"
-                                        data-bs-placement="bottom"
-                                        data-bs-trigger="focus"
-                                        data-bs-content='Separe seus ingredientes com ","'
-                                    >
-                                    <label for="ingredientes_value">Ingredientes</label>
-                                </div>
-                                <div class="container_input_rec"></div>
-                                <div class="container_input_rec">
-                                    <input class="botao submit_button submit_form_rec" type="submit" id="submit_form_rec" value="Gerar receita">
-                                </div>
-                            </form>
+                            <div id="receita_ingredientes">
+                                <form id="form_gerar_receitas">
+                                    <div class="container_input_rec input_rec">
+                                        <input
+                                            type="text" name="ingredientes_values"
+                                            id="ingredientes_value"
+                                            placeholder=" "
+                                            required
+                                            data-bs-container="body"
+                                            data-bs-toggle="popover"
+                                            data-bs-placement="bottom"
+                                            data-bs-trigger="focus"
+                                            data-bs-content='Separe seus ingredientes com ","'
+                                        >
+                                        <label for="ingredientes_value">Ingredientes</label>
+                                    </div>
+                                    <div class="container_input_rec"></div>
+                                    <div class="container_input_rec">
+                                        <input class="botao submit_button submit_form_rec" type="submit" id="submit_form_rec" value="Gerar receita">
+                                    </div>
+                                </form>
+                                <a style="cursor: pointer;" onclick="mudar_form(1)">Deseja gerar receita por nome?</a>
+                            </div>
                         </div>
                     </section>
                 </div>
