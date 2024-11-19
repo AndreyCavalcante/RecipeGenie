@@ -27,7 +27,7 @@ function mudar_form(value){
                     <div class="container_input_rec input_rec">
                         <input
                             type="text" name="ingredientes_values"
-                            id="ingredientes_value"
+                            id="nome_receita"
                             placeholder=" "
                             required
                         >
@@ -270,22 +270,14 @@ $(document).on('submit', '#form_gerar_receitas', function(e){
 $(document).on('submit', '#form_gerar_nome', function(e){
     e.preventDefault();
 
-    let ingre_values = $('#ingredientes_value').val();
-
-    let ingre_list = ingre_values.split(",");
-
-    let ingredientes = [];
+    let nome = $('#nome_receita').val();
     
-    ingre_list.forEach(ingrediente => {
-        ingredientes.push(ingrediente.trim())
-    });
-
     loader(true, 'Gerando receita...')
 
     $.ajax({
         url: '../config/gerar_receitas.php',
         method: 'post',
-        data: {"lista": ingredientes},
+        data: {'nome': nome},
         dataType: 'json',
         success: function(result){
             loader(false, 'Sucesso')
@@ -303,8 +295,6 @@ $(document).on('submit', '#form_gerar_nome', function(e){
             console.log("Erro: "+status+error)
         }
     });
-
-    
 });
 
 function salvar_receita(){
