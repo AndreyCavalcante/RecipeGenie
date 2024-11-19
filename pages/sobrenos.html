@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História - Linha do Tempo</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/style_index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    
+      body {
+        background: #f7f7f7;
+        font-family: 'Poppins', sans-serif;
+      }
+    
+      .header {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+      }
+    
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+    
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+    
+      .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background: #2c3e50;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        border-radius: 10px;
+      }
+    
+      .container-info {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        animation: fadeIn 0.8s ease-in;
+      }
+    
+      .container-info:nth-child(odd) {
+        left: 0;
+      }
+    
+      .container-info:nth-child(even) {
+        left: 50%;
+      }
+    
+      .content {
+        padding: 20px 30px;
+        background: #e6e5e3;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+    
+      .content:hover {
+        transform: translateY(-5px);
+      }
+    
+      .container-info::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background: #f8c131;
+        border-radius: 50%;
+        top: 15px;
+        z-index: 1;
+      }
+    
+      .container-info:nth-child(odd)::after {
+        right: 7px;
+      }
+    
+      .container-info:nth-child(even)::after {
+        left: 7px;
+      }
+    
+      .title-sobrenos {
+        color: #2c3e50;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+    
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      @media screen and (max-width: 768px) {
+        .timeline::after {
+          left: 31px;
+        }
+    
+        .container-info {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+          left: 0;
+        }
+    
+        .container-info:nth-child(even) {
+          left: 7px;
+        }
+    
+        .container-info::after {
+          left: 15px;
+        }
+
+      }
+    </style>
+
+  </head>
+  <body>
+    <header class="container-fluid nav-container">
+      <div class="nav-container">
+          <nav class="navbar navbar-expand-lg nav-edit">
+              <div class="container-fluid">
+                  <a class="navbar-brand font-edit" href="../index.php">
+                      <img src="../assets/images/favicon.png" width="40px" alt="Recipe Genie">
+                      Recipe Genie
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link" href="../index.php">Saiba mais</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#"></a>
+                          </li>
+                      </ul>
+                      <div class="d-flex" role="search">
+                      </div>
+                  </div>
+              </div>
+          </nav>
+      </div>
+  </header>
+  
+    <div class="timeline">
+      <div class="container-info">
+        <div class="content">
+          <div class="title-sobrenos"><h2>Objetivo do projeto</h2></div>
+          <p>O Recipe Genie foi criado com o propósito de facilitar o preparo de receitas, ajudando os usuários a aproveitarem ao máximo os ingredientes disponíveis em casa. Nosso objetivo é combater o desperdício de alimentos, oferecendo opções criativas e práticas na hora de cozinhar.</p>
+        </div>
+      </div>
+  
+      <div class="container-info">
+        <div class="content">
+          <div class="title-sobrenos"><h2>Equipe</h2></div>
+          <p>O Recipe Genie foi desenvolvido por dois estudantes de Análise e Desenvolvimento de Sistemas da Faculdade Projeção, <a href="https://br.linkedin.com/in/andrey-lopes-cavalcante-mendes-49a523270" class="link-equipe" target="_blank">Andrey Lopes Cavalcante Mendes</a> e <a href="https://br.linkedin.com/in/victor-kalebe-gon%C3%A7alves-peixinho-363689339?trk=people-guest_people_search-card" class="link-equipe" target="_blank">Victor Kalebe Gonçalves Peixinho</a>. Combinando criatividade e conhecimento técnico, a equipe trabalhou para criar uma ferramenta útil e acessível que atende às necessidades diárias na cozinha.</p>
+        </div>
+      </div>
+  
+      <div class="container-info">
+        <div class="content">
+          <div class="title-sobrenos"> <h2>Melhorias futuras e feedback</h2></div>
+          <p>Estamos comprometidos em aprimorar o Recipe Genie continuamente, adicionando novos recursos e tornando-o ainda mais eficiente. Sua opinião é essencial para nós! Envie seu feedback e nos ajude a construir um aplicativo que atenda melhor às suas expectativas e necessidades.</p>
+        </div>
+      </div>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Adiciona animação de scroll reveal
+      const containers = document.querySelectorAll('.container');
+      
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+      };
+  
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+  
+      containers.forEach(container => {
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+        observer.observe(container);
+      });
+    </script>
+  </body>
+  </html>

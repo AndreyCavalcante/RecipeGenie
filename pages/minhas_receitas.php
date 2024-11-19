@@ -121,8 +121,7 @@
                             </form>
                             <div class="footer-nav-expand">
                                 <div class="left-section">
-                                    <a href="#">Sobre Nós</a>
-                                    <a href="#">Feedback</a>
+                                    <a href="sobrenos.html">Sobre Nós</a>
                                     <span class="copyright">© 2024 RecipeGenie</span>
                                 </div>
                                 <div class="nome_footer">
@@ -187,8 +186,7 @@
                             </form>
                             <div class="footer-nav">
                                 <div class="left-section">
-                                    <a href="#">Sobre Nós</a>
-                                    <a href="#">Feedback</a>
+                                    <a href="sobrenos.html">Sobre Nós</a>
                                     <span class="copyright">© 2024 RecipeGenie</span>
                                 </div>
                                 <h1 class="h1">RecipeGenie</h1>

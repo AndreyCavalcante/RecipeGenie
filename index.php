@@ -30,7 +30,7 @@
                                     <a class="nav-link" href="#ia_title">Saiba mais</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Suporte</a>
+                                    <a class="nav-link" href="pages/sobrenos.html">Sobre nós</a>
                                 </li>
                             </ul>
                             <div class="d-flex" role="search">
@@ -102,8 +102,7 @@
         </main>
         <footer>
             <div class="left-section">
-                <a href="#">Sobre Nós</a>
-                <a href="#">Feedback</a>
+                <a href="pages/sobrenos.html">Sobre Nós</a>
                 <span class="copyright">© 2024 RecipeGenie</span>
             </div>
             <h1 class="h1 h1_footer">RecipeGenie</h1>

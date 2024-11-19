@@ -185,3 +185,8 @@ footer {
     font-size: 24px;
     color: #333;
 }
+
+.link-equipe{
+    text-decoration: none;
+    color: #f8c131;
+}
