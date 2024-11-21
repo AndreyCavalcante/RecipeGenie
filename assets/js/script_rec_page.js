@@ -218,7 +218,7 @@ $(document).on('submit', '#form_gerar_receitas', function(e){
     $.ajax({
         url: '../config/gerar_receitas.php',
         method: 'post',
-        data: {"lista": ingredientes},
+        data: {'form': 'ingredientes', "lista": ingredientes},
         dataType: 'json',
         success: function(result){
             loader(false, 'Sucesso')
@@ -250,7 +250,7 @@ $(document).on('submit', '#form_gerar_nome', function(e){
     $.ajax({
         url: '../config/gerar_receitas.php',
         method: 'post',
-        data: {'nome': nome},
+        data: {'form': 'nome', 'lista': nome},
         dataType: 'json',
         success: function(result){
             loader(false, 'Sucesso')

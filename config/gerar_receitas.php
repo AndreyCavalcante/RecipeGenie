@@ -13,6 +13,14 @@
 
     $apiKey = $_ENV['API_KEY'] ?? 'default_value';
 
+    $prompt = "";
+
+    if($_POST['form'] === "ingredientes"){
+        $prompt = "Crie uma receita deliciosa utilizando os seguintes ingredientes: " . implode(', ', $ingredientes);
+    }else if($_POST['form'] === "nome"){
+        $prompt = "Crie uma receita deliciosa de $ingredientes";
+    }
+
     $modelo = json_encode([
         'receita' => [
             [
@@ -47,7 +55,7 @@
         ]
     ]);
 
-    function gerar_receitas($ingredientes, $apiKey, $modelo){
+    function gerar_receitas($ingredientes, $apiKey, $modelo, $prompt){
         $client = new Client([
             'base_uri' => 'https://api.openai.com/v1/',
             'headers' => [
@@ -56,7 +64,7 @@
             ]
         ]);
 
-        $prompt = "Crie uma receita deliciosa utilizando os seguintes ingredientes: " . implode(', ', $ingredientes) . ". Gere a receita em um JSON estruturado seguindo este modelo:\n" . $modelo . "\nResponda apenas com o JSON, sem texto adicional.";
+        $prompt .= ". Gere a receita em um JSON estruturado seguindo este modelo:\n" . $modelo . "\nResponda apenas com o JSON, sem texto adicional.";
 
         try{
             $response = $client->post('chat/completions', [
@@ -93,4 +101,4 @@
         }
     }
 
-    gerar_receitas($ingredientes, $apiKey, $modelo);
+    gerar_receitas($ingredientes, $apiKey, $modelo, $prompt);
